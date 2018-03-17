@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="IP_xZREmJh_K3hLok3jN-T2iC_jCcx7AKFqWBSx7pJE" />
+
+
+
+
+
+
+<meta name="baidu-site-verification" content="kpDrv7bdGV" />
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="markdown," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="markdown可以看作是一个快速排版的工具，可以让你在码字的同时无需额外点击其他按钮而实现的自动排版，你无需考虑字号字体颜色加粗等各种琐事，只需要敲入特定符号即可，而且没有那些乱七八糟的windows拼写检查的波浪线！！  下面是一些适用场合|局限性|各平台markdown编辑器测评">
+<meta name="keywords" content="markdown">
+<meta property="og:type" content="article">
+<meta property="og:title" content="markdown编辑器测评">
+<meta property="og:url" content="http://yoursite.com/2017/10/09/markdown-intro/index.html">
+<meta property="og:site_name" content="Jennifer&#39;s Blog">
+<meta property="og:description" content="markdown可以看作是一个快速排版的工具，可以让你在码字的同时无需额外点击其他按钮而实现的自动排版，你无需考虑字号字体颜色加粗等各种琐事，只需要敲入特定符号即可，而且没有那些乱七八糟的windows拼写检查的波浪线！！  下面是一些适用场合|局限性|各平台markdown编辑器测评">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-03-17T09:37:23.740Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="markdown编辑器测评">
+<meta name="twitter:description" content="markdown可以看作是一个快速排版的工具，可以让你在码字的同时无需额外点击其他按钮而实现的自动排版，你无需考虑字号字体颜色加粗等各种琐事，只需要敲入特定符号即可，而且没有那些乱七八糟的windows拼写检查的波浪线！！  下面是一些适用场合|局限性|各平台markdown编辑器测评">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/10/09/markdown-intro/"/>
+
+
+
+
+
+  <title>markdown编辑器测评 | Jennifer's Blog</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?07c94a16d9c0a1f9fd78cb095d9bfa16";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Jennifer's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">welcome</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/09/markdown-intro/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jennifer Zhang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/me.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jennifer's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">markdown编辑器测评</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-09T20:40:44+08:00">
+                2017-10-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/10/09/markdown-intro/" class="leancloud_visitors" data-flag-title="markdown编辑器测评">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  671
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  2
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>markdown可以看作是一个快速排版的工具，可以让你在码字的同时无需额外点击其他按钮而实现的自动排版，你无需考虑字号字体颜色加粗等各种琐事，只需要敲入特定符号即可，而且没有那些乱七八糟的windows拼写检查的波浪线！！</p>
+</blockquote>
+<p>下面是一些适用场合|局限性|各平台markdown编辑器测评</p>
+<a id="more"></a>
+<p>markdown上手之后几乎是可以替代任何非严肃环境下的使用word的场合：</p>
+<ul>
+<li style="list-style: none"><input type="checkbox" checked> 课堂作业、实验报告 </li>
+<li style="list-style: none"><input type="checkbox" checked> 上传至自己的博客</li>
+<li style="list-style: none"><input type="checkbox" checked> 课堂笔记、读书笔记</li>
+<li style="list-style: none"><input type="checkbox" checked> 任何对字号字体等无严格要求的文档</li>
+<li style="list-style: none"><input type="checkbox" checked> whatever u want</li>
+</ul>
+<p>局限性：</p>
+<ul>
+<li style="list-style: none"><input type="checkbox"> 居中</li>
+<li style="list-style: none"><input type="checkbox"> 多空行、多空格</li>
+<li style="list-style: none"><input type="checkbox"> 严格字号字体要求</li>
+</ul>
+<h1 id="Markdown编辑器推荐"><a href="#Markdown编辑器推荐" class="headerlink" title="Markdown编辑器推荐"></a>Markdown编辑器推荐</h1><h2 id="太长不看版"><a href="#太长不看版" class="headerlink" title="太长不看版"></a>太长不看版</h2><table>
+<thead>
+<tr>
+<th>平台</th>
+<th>Editor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Windows</td>
+<td>Typora</td>
+</tr>
+<tr>
+<td>Mac OS</td>
+<td>MWeb / Ulysses</td>
+</tr>
+<tr>
+<td>Web</td>
+<td>不推荐</td>
+</tr>
+</tbody>
+</table>
+<h2 id="基本需求"><a href="#基本需求" class="headerlink" title="基本需求"></a>基本需求</h2><ul>
+<li>基本markdown语法满足</li>
+<li>可导出html、pdf、png等格式</li>
+<li>⚠️<strong>支持图片拖拽上传</strong></li>
+<li>可预览（所见即所得/左编辑右预览）</li>
+<li>代码高亮</li>
+</ul>
+<h2 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h2><h3 id="Typora"><a href="#Typora" class="headerlink" title="Typora"></a>Typora</h3><p><a href="www.typora.io">Typora官网:www.typora.io</a></p>
+<ul>
+<li>约42MB</li>
+<li>所见即所得</li>
+<li>支持图片拖拽</li>
+<li>代码高亮</li>
+<li>支持latex公式</li>
+</ul>
+<h3 id="Atom"><a href="#Atom" class="headerlink" title="Atom"></a>Atom</h3><p><a href="atom.io">Atom官网:atom.io</a></p>
+<ul>
+<li>约132MB</li>
+<li>一个强大的编辑器</li>
+<li>适合比起<code>所见即所得</code>更偏好编辑+预览的旁友们</li>
+</ul>
+<p>由于虚拟机配置问题本人并没有实际操作评测，目测Typora已经满足日常所需且atom配置markdown较为繁琐</p>
+<p>仍然对此编辑器好奇的小猴子可前往👇🏽一探究竟</p>
+<blockquote>
+<p>Atom配置markdown参考博客：<a href="https://sspai.com/post/40460" target="_blank" rel="noopener">https://sspai.com/post/40460</a></p>
+</blockquote>
+<h3 id="sublime-text"><a href="#sublime-text" class="headerlink" title="sublime text"></a>sublime text</h3><ul>
+<li>支持markdown的强大的文本编辑器</li>
+<li>需要添加扩展来实现代码高亮能功能</li>
+<li>不支持图片拖拽</li>
+<li>不支持预览，不过有在浏览器里预览的扩展</li>
+</ul>
+<h3 id="MarkdownPad"><a href="#MarkdownPad" class="headerlink" title="MarkdownPad"></a>MarkdownPad</h3><p>别想了</p>
+<p>插入图片是pro高级功能</p>
+<p>要付费的🙄</p>
+<h2 id="OS-X"><a href="#OS-X" class="headerlink" title="OS X"></a>OS X</h2><h3 id="MWeb"><a href="#MWeb" class="headerlink" title="MWeb"></a>MWeb</h3><ul>
+<li style="list-style: none"><input type="checkbox" checked> 基本markdown语法满足</li>
+<li style="list-style: none"><input type="checkbox" checked> 可导出html、pdf、png等格式</li>
+<li style="list-style: none"><input type="checkbox" checked> <strong>支持图片拖拽上传</strong></li>
+<li style="list-style: none"><input type="checkbox" checked> 可实时预览</li>
+<li style="list-style: none"><input type="checkbox" checked> 文档库</li>
+<li style="list-style: none"><input type="checkbox" checked> 统计字数等杂七杂八的功能……</li>
+<li style="list-style: none"><input type="checkbox" checked> latex公式 $\sqrt{x}$</li>
+</ul>
+<h3 id="Ulysess"><a href="#Ulysess" class="headerlink" title="Ulysess"></a>Ulysess</h3><p>同MWeb</p>
+<p>几乎都是完美der~</p>
+<p>放心用就好了~</p>
+<p>我的<del>破解版</del>会闪退，但不会丢失进度，不知道是不是个别原因</p>
+<blockquote>
+<p>mac系统下以上两款均需付费，<del>破解版请前往<a href="http://www.waitsun.com或其他途径自寻" target="_blank" rel="noopener">www.waitsun.com或其他途径自寻</a></del><br>请支持正版！</p>
+<p>btw：分享两个美妙的网站：<br><a href="www.waitsun.com">爱情守望者 www.waitsun.com</a><br><a href="xclient.info">xclient.info</a></p>
+</blockquote>
+<h2 id="Web"><a href="#Web" class="headerlink" title="Web"></a>Web</h2><h3 id="简书"><a href="#简书" class="headerlink" title="简书"></a>简书</h3><p>貌似只可发布，不可导出pdf</p>
+<h3 id="马克飞象"><a href="#马克飞象" class="headerlink" title="马克飞象"></a>马克飞象</h3><p>与印象笔记结合、一键同步</p>
+<p>web版的markdown编辑器功能一般比较局限</p>
+<p>总体来说不推荐</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/markdown/" rel="tag"># markdown</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/09/24/mac-hadoop/" rel="next" title="mac下Hadoop环境配置">
+                <i class="fa fa-chevron-left"></i> mac下Hadoop环境配置
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/10/11/worpress/" rel="prev" title="从0开始搭建个人网站+wordpress">
+                从0开始搭建个人网站+wordpress <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<span class="jiathis_txt">分享到：</span>
+<a class="jiathis_button_fav">收藏夹</a>
+<a class="jiathis_button_copy">复制网址</a>
+<a class="jiathis_button_email">邮件</a>
+<a class="jiathis_button_weixin">微信</a>
+<a class="jiathis_button_qzone">QQ空间</a>
+<a class="jiathis_button_tqq">腾讯微博</a>
+<a class="jiathis_button_douban">豆瓣</a>
+<a class="jiathis_button_share">一键分享</a>
+
+<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+  data_track_clickback:true,
+  summary:"",
+  shortUrl:false,
+  hideMore:false
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/me.jpg"
+                alt="Jennifer Zhang" />
+            
+              <p class="site-author-name" itemprop="name">Jennifer Zhang</p>
+              <p class="site-description motion-element" itemprop="description">In me the tiger sniffs the rose.</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/jyzhangchn" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:jyzhangchn@outlook.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Markdown编辑器推荐"><span class="nav-number">1.</span> <span class="nav-text">Markdown编辑器推荐</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#太长不看版"><span class="nav-number">1.1.</span> <span class="nav-text">太长不看版</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本需求"><span class="nav-number">1.2.</span> <span class="nav-text">基本需求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Windows"><span class="nav-number">1.3.</span> <span class="nav-text">Windows</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Typora"><span class="nav-number">1.3.1.</span> <span class="nav-text">Typora</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Atom"><span class="nav-number">1.3.2.</span> <span class="nav-text">Atom</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sublime-text"><span class="nav-number">1.3.3.</span> <span class="nav-text">sublime text</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MarkdownPad"><span class="nav-number">1.3.4.</span> <span class="nav-text">MarkdownPad</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#OS-X"><span class="nav-number">1.4.</span> <span class="nav-text">OS X</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#MWeb"><span class="nav-number">1.4.1.</span> <span class="nav-text">MWeb</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ulysess"><span class="nav-number">1.4.2.</span> <span class="nav-text">Ulysess</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Web"><span class="nav-number">1.5.</span> <span class="nav-text">Web</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#简书"><span class="nav-number">1.5.1.</span> <span class="nav-text">简书</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#马克飞象"><span class="nav-number">1.5.2.</span> <span class="nav-text">马克飞象</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jennifer Zhang</span>
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("TYKfqtFTPNGIjeo5vvr5hd8t-gzGzoHsz", "g3KnWVrl9e794cUtEWeUM7j0");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
