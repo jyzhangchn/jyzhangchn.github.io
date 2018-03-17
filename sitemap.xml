@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2017/12/09/MCM/</loc>
+    
+    <lastmod>2018-03-17T15:53:36.434Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2017/12/21/bash2zsh/</loc>
     
     <lastmod>2018-03-17T15:50:06.139Z</lastmod>
@@ -47,13 +54,6 @@
     <loc>http://yoursite.com/2017/10/24/wordpress-plus/</loc>
     
     <lastmod>2018-03-17T12:36:13.394Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2017/12/09/MCM/</loc>
-    
-    <lastmod>2018-03-17T11:49:05.921Z</lastmod>
     
   </url>
   
