@@ -4,6 +4,74 @@
 
     
   <url>
+    <loc>http://yoursite.com/2017/12/22/oh-my-zsh/</loc>
+    <lastmod>2018-03-17T15:39:24.870Z</lastmod>
+    <data>
+        <display>
+        <title>终端shell美化：oh-my-zsh配置</title>
+        <pubTime>2017-12-22T14:50:38.000Z</pubTime>
+        
+        <tag>shell</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2017/12/21/bash2zsh/</loc>
+    <lastmod>2018-03-17T15:32:17.645Z</lastmod>
+    <data>
+        <display>
+        <title>mac OS/Linux/Unix下bash切换oh-my-zsh</title>
+        <pubTime>2017-12-21T02:45:25.000Z</pubTime>
+        
+        <tag>shell</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2017/12/23/oh-my-zsh-diy/</loc>
+    <lastmod>2018-03-17T15:32:16.806Z</lastmod>
+    <data>
+        <display>
+        <title>oh-my-zsh 插件介绍</title>
+        <pubTime>2017-12-23T15:09:40.000Z</pubTime>
+        
+        <tag>shell</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2017/12/18/markdown-ppt/</loc>
+    <lastmod>2018-03-17T12:56:59.667Z</lastmod>
+    <data>
+        <display>
+        <title>用markdown做ppt</title>
+        <pubTime>2017-12-18T08:56:31.000Z</pubTime>
+        
+        <tag>markdown</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2017/09/24/mac-hadoop/</loc>
     <lastmod>2018-03-17T12:39:38.701Z</lastmod>
     <data>
@@ -46,23 +114,6 @@
         <pubTime>2017-10-24T10:59:36.000Z</pubTime>
         
         <tag>wordpress</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2017/12/18/markdown-ppt/</loc>
-    <lastmod>2018-03-17T12:25:50.126Z</lastmod>
-    <data>
-        <display>
-        <title>用markdown做ppt</title>
-        <pubTime>2017-12-18T08:56:31.000Z</pubTime>
-        
-        <tag>markdown</tag>
          
          
            

@@ -2,6 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2017/12/22/oh-my-zsh/</loc>
+    
+    <lastmod>2018-03-17T15:39:24.870Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2017/12/21/bash2zsh/</loc>
+    
+    <lastmod>2018-03-17T15:32:17.645Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2017/12/23/oh-my-zsh-diy/</loc>
+    
+    <lastmod>2018-03-17T15:32:16.806Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2017/12/18/markdown-ppt/</loc>
+    
+    <lastmod>2018-03-17T12:56:59.667Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2017/09/24/mac-hadoop/</loc>
     
     <lastmod>2018-03-17T12:39:38.701Z</lastmod>
@@ -19,13 +47,6 @@
     <loc>http://yoursite.com/2017/10/24/wordpress-plus/</loc>
     
     <lastmod>2018-03-17T12:36:13.394Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2017/12/18/markdown-ppt/</loc>
-    
-    <lastmod>2018-03-17T12:25:50.126Z</lastmod>
     
   </url>
   

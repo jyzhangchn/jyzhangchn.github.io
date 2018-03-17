@@ -70,7 +70,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="shell," />
 
 
 
@@ -81,21 +81,29 @@
 
 
 
-<meta name="description" content="2017美赛经验分享本人所在的团队在2017年美国大学生数学竞赛MCM中获得一等奖M奖。应学弟学妹的邀请做了2017美赛M奖经验分享，由于网上具体介绍美赛的帖子较多，这里贴出来一些具体的准备工作和一些准备过程中容易被忽略的地方。">
+<meta name="description" content="上一篇博文已经介绍了什么是zsh以及如何从bash切换到oh-my-zsh。接下来讲讲配置与美化的那些事儿。我知道没有图你们是不会点进来的。还是上一篇的图~">
+<meta name="keywords" content="shell">
 <meta property="og:type" content="article">
-<meta property="og:title" content="2017美赛M奖经验分享">
-<meta property="og:url" content="http://yoursite.com/2017/12/09/MCM/index.html">
+<meta property="og:title" content="终端shell美化：oh-my-zsh配置">
+<meta property="og:url" content="http://yoursite.com/2017/12/22/oh-my-zsh/index.html">
 <meta property="og:site_name" content="Jennifer&#39;s Blog">
-<meta property="og:description" content="2017美赛经验分享本人所在的团队在2017年美国大学生数学竞赛MCM中获得一等奖M奖。应学弟学妹的邀请做了2017美赛M奖经验分享，由于网上具体介绍美赛的帖子较多，这里贴出来一些具体的准备工作和一些准备过程中容易被忽略的地方。">
+<meta property="og:description" content="上一篇博文已经介绍了什么是zsh以及如何从bash切换到oh-my-zsh。接下来讲讲配置与美化的那些事儿。我知道没有图你们是不会点进来的。还是上一篇的图~">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2017/12/09/MCM/1.jpg">
-<meta property="og:image" content="http://yoursite.com/2017/12/09/MCM/2.jpg">
-<meta property="og:image" content="http://yoursite.com/2017/12/09/MCM/3.jpg">
-<meta property="og:updated_time" content="2018-03-17T11:49:05.921Z">
+<meta property="og:image" content="http://yoursite.com/2017/12/22/oh-my-zsh/1.png">
+<meta property="og:image" content="http://yoursite.com/2017/12/22/oh-my-zsh/2.jpg">
+<meta property="og:image" content="http://yoursite.com/2017/12/22/oh-my-zsh/3.png">
+<meta property="og:image" content="http://yoursite.com/2017/12/22/oh-my-zsh/4.jpg">
+<meta property="og:image" content="http://yoursite.com/2017/12/22/oh-my-zsh/5.jpg">
+<meta property="og:image" content="http://yoursite.com/2017/12/22/oh-my-zsh/6.jpg">
+<meta property="og:image" content="http://yoursite.com/2017/12/22/oh-my-zsh/7.jpg">
+<meta property="og:image" content="http://yoursite.com/2017/12/22/oh-my-zsh/8.jpg">
+<meta property="og:image" content="http://yoursite.com/2017/12/22/oh-my-zsh/9.jpg">
+<meta property="og:image" content="http://yoursite.com/2017/12/22/oh-my-zsh/alias.gif">
+<meta property="og:updated_time" content="2018-03-17T15:39:24.870Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="2017美赛M奖经验分享">
-<meta name="twitter:description" content="2017美赛经验分享本人所在的团队在2017年美国大学生数学竞赛MCM中获得一等奖M奖。应学弟学妹的邀请做了2017美赛M奖经验分享，由于网上具体介绍美赛的帖子较多，这里贴出来一些具体的准备工作和一些准备过程中容易被忽略的地方。">
-<meta name="twitter:image" content="http://yoursite.com/2017/12/09/MCM/1.jpg">
+<meta name="twitter:title" content="终端shell美化：oh-my-zsh配置">
+<meta name="twitter:description" content="上一篇博文已经介绍了什么是zsh以及如何从bash切换到oh-my-zsh。接下来讲讲配置与美化的那些事儿。我知道没有图你们是不会点进来的。还是上一篇的图~">
+<meta name="twitter:image" content="http://yoursite.com/2017/12/22/oh-my-zsh/1.png">
 
 
 
@@ -125,13 +133,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/12/09/MCM/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/12/22/oh-my-zsh/"/>
 
 
 
 
 
-  <title>2017美赛M奖经验分享 | Jennifer's Blog</title>
+  <title>终端shell美化：oh-my-zsh配置 | Jennifer's Blog</title>
   
 
 
@@ -278,7 +286,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/09/MCM/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/22/oh-my-zsh/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jennifer Zhang">
@@ -295,7 +303,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">2017美赛M奖经验分享</h1>
+          <h1 class="post-title" itemprop="name headline">终端shell美化：oh-my-zsh配置</h1>
         
 
         <div class="post-meta">
@@ -307,8 +315,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-09T17:52:43+08:00">
-                2017-12-09
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-22T22:50:38+08:00">
+                2017-12-22
               </time>
             
 
@@ -325,7 +333,7 @@
 
           
           
-             <span id="/2017/12/09/MCM/" class="leancloud_visitors" data-flag-title="2017美赛M奖经验分享">
+             <span id="/2017/12/22/oh-my-zsh/" class="leancloud_visitors" data-flag-title="终端shell美化：oh-my-zsh配置">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -350,7 +358,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  899
+                  849
                 </span>
               
 
@@ -387,113 +395,54 @@
       
 
       
-        <h1 id="2017美赛经验分享"><a href="#2017美赛经验分享" class="headerlink" title="2017美赛经验分享"></a>2017美赛经验分享</h1><p>本人所在的团队在2017年美国大学生数学竞赛MCM中获得一等奖M奖。应学弟学妹的邀请做了2017美赛M奖经验分享，由于网上具体介绍美赛的帖子较多，这里贴出来一些具体的准备工作和一些准备过程中容易被忽略的地方。</p>
+        <p>上一篇博文已经介绍了什么是zsh以及<a href="">如何从bash切换到oh-my-zsh</a>。接下来讲讲配置与美化的那些事儿。<br>我知道没有图你们是不会点进来的。还是上一篇的图~</p>
+<img src="/2017/12/22/oh-my-zsh/1.png">
 <a id="more"></a>
-<h2 id="美赛官网"><a href="#美赛官网" class="headerlink" title="美赛官网"></a>美赛官网</h2><p><a href="http://www.comap.com/undergraduate/contests/" target="_blank" rel="noopener">http://www.comap.com/undergraduate/contests/</a></p>
-<p>比赛时间和题目说明：<br><img src="/2017/12/09/MCM/1.jpg"><br><img src="/2017/12/09/MCM/2.jpg"><br>参赛前步骤：<br><img src="/2017/12/09/MCM/3.jpg"></p>
-<h2 id="赛前准备"><a href="#赛前准备" class="headerlink" title="赛前准备"></a>赛前准备</h2><h3 id="关于组队"><a href="#关于组队" class="headerlink" title="关于组队"></a>关于组队</h3><ul>
-<li><code>不要</code>以抱大腿的心态组队</li>
-<li>队友<code>靠谱</code>胜过抱大腿<ul>
-<li>三个臭皮匠顶一个诸葛亮    </li>
-<li>信任感：不怀疑彼此的能力</li>
-<li>默契：相互讨论能够激起灵感迸发的火花</li>
-<li>认真 </li>
-</ul>
-</li>
-<li>真诚：明确自己的<code>核心竞争力</code><ul>
-<li>建模？</li>
-<li>编程？</li>
-<li>英文写作？</li>
-<li>信息检索？</li>
-</ul>
-</li>
-<li>三人最好优劣互补，各有所长</li>
-<li>找导师：最好联系自己<code>了解或接触过的</code>、<code>负责的</code>导师</li>
-</ul>
-<h3 id="关于报名"><a href="#关于报名" class="headerlink" title="关于报名"></a>关于报名</h3><ol>
-<li>官网注册<br> <a href="http://www.comap.com/undergraduate/contests/mcm" target="_blank" rel="noopener">www.comap.com/undergraduate/contests/mcm</a></li>
-<li>缴费：$100/队    <ol>
-<li>委托 <em>数学中国</em> 论坛缴费</li>
-<li>淘宝找信用卡代刷（可能会有问题）</li>
-<li>用家长的信用卡直接在官网支付</li>
-</ol>
-</li>
-</ol>
-<h3 id="赛前一个月"><a href="#赛前一个月" class="headerlink" title="赛前一个月"></a>赛前一个月</h3><ul>
-<li>组内成员讨论分工</li>
-<li>制定时间表合理分配任务</li>
-<li>英文论文：LaTex</li>
-<li>算法：自学美赛常用算法并准备 <code>没有bug的</code> matlab代码</li>
-<li>编程：平时多练练手</li>
-</ul>
-<h3 id="赛前两周"><a href="#赛前两周" class="headerlink" title="赛前两周"></a>赛前两周</h3><ul>
-<li>三人一起做题练手互相磨合</li>
-<li>仿真练习提前适应正式比赛的流程和时间安排：选题、讨论</li>
-<li>确保对一些常用算法的熟悉程度</li>
-<li>完善matlab代码库</li>
-</ul>
-<h3 id="关于环境"><a href="#关于环境" class="headerlink" title="关于环境"></a>关于环境</h3><ul>
-<li>提前确定好三天比赛的安静场地<ul>
-<li>教室|机房|实验室|系楼会议室|大活办公室|宾馆……</li>
-</ul>
-</li>
-<li>良好的 wifi 环境</li>
-<li>给电脑手机等供电的插座</li>
-<li><code>科学上网</code>的环境（Google） </li>
-<li>用来补充体力的咖啡/外卖/零食</li>
-<li>用来 <del>瞎玩</del> <del>画画</del> brainstorm 的白板/黑板</li>
-</ul>
-<h2 id="比赛进行时"><a href="#比赛进行时" class="headerlink" title="比赛进行时"></a>比赛进行时</h2><h3 id="作息"><a href="#作息" class="headerlink" title="作息"></a>作息</h3><ul>
-<li>前两天正常休息保证经历充沛  </li>
-<li>写论文的同学可能会辛苦一点</li>
-</ul>
-<h3 id="选题"><a href="#选题" class="headerlink" title="选题"></a>选题</h3><p>为节省时间最好在比赛前就商量好比较擅长的几个方向，明确短板的方向的题可以直接不看或者粗略看一遍</p>
+<h2 id="配置oh-my-zsh"><a href="#配置oh-my-zsh" class="headerlink" title="配置oh-my-zsh"></a>配置oh-my-zsh</h2><p>配置文件所在路径：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~/.zshrc</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>注意：mac上这些文件是默认被隐藏的，最好用终端直接打开，或者在终端输入命令 <em>defaults write com.apple.finder AppleShowAllFiles -bool true</em> 来显示隐藏文件后再在Finder中查看</p>
+</blockquote>
+<p>⚠️如果你之前在 ~/.bash 或者 /etc/profile 中修改过环境变量，需要将里面相应的配置粘贴进~/.zshrc<br>⚠️每次在更改.zshrc配置文件后需要在终端输入<code>source  ~/.zshrc</code> 使配置生效，然后重启终端</p>
+<p>下面讲讲配置里的主题和插件和alias命令</p>
+<h3 id="主题选择"><a href="#主题选择" class="headerlink" title="主题选择"></a>主题选择</h3><p>oh-my-zsh提供了超多的主题供君慢慢挑选，可以在github上看看每个主题的样式。如果觉得主题或多或少对一些颜色或者显示的格式不太满意的话可以先选一个差不多的然后我们后面再来讲讲自定义。<br><a href="https://github.com/robbyrussell/oh-my-zsh/wiki/Themes" target="_blank" rel="noopener">oh-my-zsh主题一览</a></p>
+<p>主题文件在本地的路径：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~/.oh-my-zsh/themes  //主题文件路径</span><br></pre></td></tr></table></figure>
+<p>在选择了主题后，用vim或文本编辑器打开zsh配置文件 <code>~/.zshrc</code> </p>
+<p>把默认主题 robbyrussell 替换成你想要的主题的名字即可</p>
+<img src="/2017/12/22/oh-my-zsh/2.jpg">
+<p>我用的主题是af-magic</p>
+<p>官网截图：</p>
+<img src="/2017/12/22/oh-my-zsh/3.png">
+<p>经过自定义后：</p>
+<img src="/2017/12/22/oh-my-zsh/4.jpg">
+<p>接下来咱说说该怎么自定义：</p>
+<h3 id="自定义"><a href="#自定义" class="headerlink" title="自定义"></a>自定义</h3><p>自定义分两部分介绍：</p>
 <ul>
-<li>MCM<ul>
-<li>A （continuous）</li>
-<li>B （discrete） </li>
-<li>C （data insights）</li>
+<li>自定义主题</li>
+<li>自定义alias命令</li>
 </ul>
-</li>
-<li>ICM<ul>
-<li>D （operations research/ network science）</li>
-<li>E （environment science）</li>
-<li>F （policy）</li>
-</ul>
-</li>
-</ul>
-<h3 id="借力"><a href="#借力" class="headerlink" title="借力"></a>借力</h3><ul>
-<li>联系导师</li>
-<li>可以和其他同学交流想法，不止于队内</li>
-<li>没事就刷新一下官网看看有没有关于命题的补充说明</li>
-<li>实在有不清楚题目的地方可以发邮件询问命题组 </li>
-</ul>
-<h3 id="信息检索"><a href="#信息检索" class="headerlink" title="信息检索"></a>信息检索</h3><ul>
-<li>知网看国内相关论文</li>
-<li>Google学术看国外最新研究 </li>
-<li>广撒网：想到什么就去Google（<code>不要百度，除非你想看满屏广告</code>）上搜一搜说不定会有意想不到的发现</li>
-<li>引用论文一定要在参考文献中标明</li>
-</ul>
-<h3 id="画图-制表"><a href="#画图-制表" class="headerlink" title="画图/制表"></a>画图/制表</h3><ul>
-<li>提前上手几款作图软件</li>
-<li>如果用LaTex排版，最好选择支持导出 eps 格式的作图软件   </li>
-<li>分享两个文件格式在线转换网站:  <ul>
-<li><a href="https://convertio.co" target="_blank" rel="noopener">https://convertio.co</a></li>
-<li><a href="https://image.online-convert.com" target="_blank" rel="noopener">https://image.online-convert.com</a></li>
-</ul>
-</li>
-</ul>
-<h3 id="论文审核"><a href="#论文审核" class="headerlink" title="论文审核"></a>论文审核</h3><ul>
-<li>队内互审</li>
-<li>目录决定这个论文的框架，写完目录后可以请导师看看逻辑是否清晰合理</li>
-<li>有条件的话可以请English-speakers/英语老师等看看摘要</li>
-</ul>
-<h2 id="赛后"><a href="#赛后" class="headerlink" title="赛后"></a>赛后</h2><ul>
-<li>认真看官网的流程</li>
-<li>跟着官网的步骤走</li>
-<li>看是否收到confirm email</li>
-<li>回家睡觉</li>
-</ul>
+<h4 id="主题自定义"><a href="#主题自定义" class="headerlink" title="主题自定义"></a>主题自定义</h4><h5 id="背景图片自定义"><a href="#背景图片自定义" class="headerlink" title="背景图片自定义"></a>背景图片自定义</h5><p>如果你们想给你的shell换个背景色甚至像我一样添加背景图片的话：<br>进入偏好设置：</p>
+<img src="/2017/12/22/oh-my-zsh/5.jpg">
+<p>然后更改相应背景色或添加图片就好了🍺</p>
+<img src="/2017/12/22/oh-my-zsh/6.jpg">
+<p>背景图片建议选纯色或者经模糊处理过的图片，且主色调要和字符色反差较大才比较合适，毕竟看得清命令才是正经事。我的背景图是苹果自带桌面进行PS高斯模糊处理后的图片。</p>
+<p>下面说说主题文件自定义。</p>
+<p>首先在文本编辑器打开你的主题文件：（路径在上文已提到）</p>
+<img src="/2017/12/22/oh-my-zsh/7.jpg">
+<p>每个人选择的主题不同，里面的代码差异会比较大，但我研究了一会儿后大概摸清了如何自定义颜色。</p>
+<p><code>&#39;$FG[117]&#39;</code> 这种形式的代码就代表一个颜色，里面的数字采用的是<a href="https://en.wikipedia.org/wiki/File:Xterm_256color_chart.svg" target="_blank" rel="noopener">xterm颜色表</a></p>
+<img src="/2017/12/22/oh-my-zsh/8.jpg">
+<p>通过比较代码和你的终端的显示，你可以自己试着调色和配色。</p>
+<h4 id="alias"><a href="#alias" class="headerlink" title="alias"></a>alias</h4><p>现在终于要介绍一个终极神器神器：alias命令<br>简单来说alias命令就相当于一个软连接或者快捷键，相当于给命令起个小名~</p>
+<p>在 <code>.zshrc</code> 中加入alias语句即可<br>用法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alias 自定义命令=&quot;原始命令&quot;</span><br></pre></td></tr></table></figure>
+<p>然后就可以做很多脑洞大开的事情了~<br>比如一键打开应用程序、一键连校园网等</p>
+<img src="/2017/12/22/oh-my-zsh/9.jpg" title="我常用的alias命令">
+<img src="/2017/12/22/oh-my-zsh/alias.gif">
+<p>（从上面的动图还可以发现，命令输错时，它还有贴心的提醒更正的功能）</p>
+<p>最后祝大家和zsh玩得嗨皮🐣</p>
+<p>更多精彩内容：<br><a href="">oh-my-zsh 插件介绍</a></p>
 
       
     </div>
@@ -509,6 +458,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/shell/" rel="tag"># shell</a>
+          
+        </div>
+      
 
       
       
@@ -518,8 +473,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/12/07/hive/" rel="next" title="mac下Hive+MySql环境配置">
-                <i class="fa fa-chevron-left"></i> mac下Hive+MySql环境配置
+              <a href="/2017/12/21/bash2zsh/" rel="next" title="mac OS/Linux/Unix下bash切换oh-my-zsh">
+                <i class="fa fa-chevron-left"></i> mac OS/Linux/Unix下bash切换oh-my-zsh
               </a>
             
           </div>
@@ -528,8 +483,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/12/18/markdown-ppt/" rel="prev" title="用markdown做ppt">
-                用markdown做ppt <i class="fa fa-chevron-right"></i>
+              <a href="/2017/12/23/oh-my-zsh-diy/" rel="prev" title="oh-my-zsh 插件介绍">
+                oh-my-zsh 插件介绍 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -699,7 +654,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#2017美赛经验分享"><span class="nav-number">1.</span> <span class="nav-text">2017美赛经验分享</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#美赛官网"><span class="nav-number">1.1.</span> <span class="nav-text">美赛官网</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#赛前准备"><span class="nav-number">1.2.</span> <span class="nav-text">赛前准备</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#关于组队"><span class="nav-number">1.2.1.</span> <span class="nav-text">关于组队</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关于报名"><span class="nav-number">1.2.2.</span> <span class="nav-text">关于报名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#赛前一个月"><span class="nav-number">1.2.3.</span> <span class="nav-text">赛前一个月</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#赛前两周"><span class="nav-number">1.2.4.</span> <span class="nav-text">赛前两周</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关于环境"><span class="nav-number">1.2.5.</span> <span class="nav-text">关于环境</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#比赛进行时"><span class="nav-number">1.3.</span> <span class="nav-text">比赛进行时</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#作息"><span class="nav-number">1.3.1.</span> <span class="nav-text">作息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#选题"><span class="nav-number">1.3.2.</span> <span class="nav-text">选题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#借力"><span class="nav-number">1.3.3.</span> <span class="nav-text">借力</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#信息检索"><span class="nav-number">1.3.4.</span> <span class="nav-text">信息检索</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#画图-制表"><span class="nav-number">1.3.5.</span> <span class="nav-text">画图/制表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#论文审核"><span class="nav-number">1.3.6.</span> <span class="nav-text">论文审核</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#赛后"><span class="nav-number">1.4.</span> <span class="nav-text">赛后</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#配置oh-my-zsh"><span class="nav-number">1.</span> <span class="nav-text">配置oh-my-zsh</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#主题选择"><span class="nav-number">1.1.</span> <span class="nav-text">主题选择</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义"><span class="nav-number">1.2.</span> <span class="nav-text">自定义</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#主题自定义"><span class="nav-number">1.2.1.</span> <span class="nav-text">主题自定义</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#背景图片自定义"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">背景图片自定义</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#alias"><span class="nav-number">1.2.2.</span> <span class="nav-text">alias</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
