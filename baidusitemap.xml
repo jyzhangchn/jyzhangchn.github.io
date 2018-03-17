@@ -4,25 +4,8 @@
 
     
   <url>
-    <loc>http://yoursite.com/2017/12/22/oh-my-zsh/</loc>
-    <lastmod>2018-03-17T15:39:24.870Z</lastmod>
-    <data>
-        <display>
-        <title>终端shell美化：oh-my-zsh配置</title>
-        <pubTime>2017-12-22T14:50:38.000Z</pubTime>
-        
-        <tag>shell</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://yoursite.com/2017/12/21/bash2zsh/</loc>
-    <lastmod>2018-03-17T15:32:17.645Z</lastmod>
+    <lastmod>2018-03-17T15:50:06.139Z</lastmod>
     <data>
         <display>
         <title>mac OS/Linux/Unix下bash切换oh-my-zsh</title>
@@ -38,8 +21,25 @@
 
     
   <url>
+    <loc>http://yoursite.com/2017/12/22/oh-my-zsh/</loc>
+    <lastmod>2018-03-17T15:49:55.322Z</lastmod>
+    <data>
+        <display>
+        <title>终端shell美化：oh-my-zsh配置</title>
+        <pubTime>2017-12-22T14:50:38.000Z</pubTime>
+        
+        <tag>shell</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2017/12/23/oh-my-zsh-diy/</loc>
-    <lastmod>2018-03-17T15:32:16.806Z</lastmod>
+    <lastmod>2018-03-17T15:49:13.161Z</lastmod>
     <data>
         <display>
         <title>oh-my-zsh 插件介绍</title>
@@ -164,21 +164,6 @@
         
         <tag>markdown</tag>
          
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2018/03/16/hello-world/</loc>
-    <lastmod>2018-03-17T09:03:06.829Z</lastmod>
-    <data>
-        <display>
-        <title>hello-world</title>
-        <pubTime>2018-03-16T05:48:37.110Z</pubTime>
-        
          
            
         </display>
