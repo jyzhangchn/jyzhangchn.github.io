@@ -85,7 +85,7 @@
 <meta name="keywords" content="Big Data">
 <meta property="og:type" content="article">
 <meta property="og:title" content="mac下Hive+MySql环境配置">
-<meta property="og:url" content="http://yoursite.com/2017/12/07/hive/index.html">
+<meta property="og:url" content="https://jyzhangchn.github.io/2017/12/07/hive/index.html">
 <meta property="og:site_name" content="Jennifer&#39;s Blog">
 <meta property="og:description" content="Hive是基于Hadoop的一个数据仓库工具，可以将结构化的数据文件映射为一张数据库表，并提供简单的sql查询功能，可以将sql语句转换为MapReduce任务进行运行。 Hive 定义了简单的类 SQL 查询语言，称为 HQL，它允许熟悉 SQL 的用户查询数据。同时，这个语言也允许熟悉 MapReduce 开发者的开发自定义的 mapper 和 reducer 来处理内建的 mapper 和">
 <meta property="og:locale" content="zh-Hans">
@@ -122,7 +122,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/12/07/hive/"/>
+  <link rel="canonical" href="https://jyzhangchn.github.io/2017/12/07/hive/"/>
 
 
 
@@ -275,7 +275,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/07/hive/">
+    <link itemprop="mainEntityOfPage" href="https://jyzhangchn.github.io/2017/12/07/hive/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jennifer Zhang">
@@ -410,7 +410,7 @@
 <p><strong>注意路径里面的版本号要和你自己下载的版本号吻合</strong></p>
 <p>然后删除:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">export PATH=/usr/local/bin:$PATH</span><br></pre></td></tr></table></figure></p>
 <h3 id="配置hive-env-sh"><a href="#配置hive-env-sh" class="headerlink" title="配置hive-env.sh"></a>配置hive-env.sh</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="built_in">export</span> HADOOP_HEAPSIZE=1024</span><br><span class="line"></span><br><span class="line"><span class="comment"># Set HADOOP_HOME to point to a specific hadoop install directory</span></span><br><span class="line">HADOOP_HOME=/usr/<span class="built_in">local</span>/Cellar/hadoop/2.8.1</span><br><span class="line"></span><br><span class="line"><span class="comment"># Hive Configuration Directory can be controlled by:</span></span><br><span class="line"><span class="built_in">export</span> HIVE_CONF_DIR=/usr/<span class="built_in">local</span>/Cellar/hive/2.3.1/libexec/conf</span><br><span class="line"></span><br><span class="line"><span class="comment"># Folder containing extra libraries required for hive compilation/execution can be controlled by:</span></span><br><span class="line"><span class="built_in">export</span> HIVE_AUX_JARS_PATH=/usr/<span class="built_in">local</span>/Cellar/hive/2.3.1/libexec/lib</span><br></pre></td></tr></table></figure>
-<p>相关博文：<br><a href="https://jyzhangchn.github.io/2017/09/24/mac-hadoop/" target="_blank" rel="noopener">mac下Hadoop环境配置</a></p>
+<p>相关博文：<br><a href="https://jyzhangchn.github.io/2017/09/24/mac-hadoop/">mac下Hadoop环境配置</a></p>
 
       
     </div>
