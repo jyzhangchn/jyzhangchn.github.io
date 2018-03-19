@@ -4,6 +4,24 @@
 
     
   <url>
+    <loc>http://jyzhangchn.coding.me/worpress.html</loc>
+    <lastmod>2018-03-19T06:17:31.052Z</lastmod>
+    <data>
+        <display>
+        <title>从0开始搭建个人网站+wordpress</title>
+        <pubTime>2017-10-11T11:45:57.000Z</pubTime>
+        
+        <tag>wordpress</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+    
+  <url>
     <loc>http://jyzhangchn.coding.me/MCM.html</loc>
     <lastmod>2018-03-17T15:53:36.434Z</lastmod>
     <data>
@@ -138,23 +156,6 @@
 
     
   <url>
-    <loc>http://jyzhangchn.coding.me/worpress.html</loc>
-    <lastmod>2018-03-17T11:04:38.792Z</lastmod>
-    <data>
-        <display>
-        <title>从0开始搭建个人网站+wordpress</title>
-        <pubTime>2017-10-11T11:45:57.000Z</pubTime>
-        
-        <tag>wordpress</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://jyzhangchn.coding.me/markdown-intro.html</loc>
     <lastmod>2018-03-17T09:37:23.740Z</lastmod>
     <data>
@@ -170,7 +171,6 @@
     </data>
     </url>
 
-    
     
     
 </urlset>
