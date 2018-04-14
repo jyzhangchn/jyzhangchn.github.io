@@ -1,0 +1,1118 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+  <meta name="google-site-verification" content="IP_xZREmJh_K3hLok3jN-T2iC_jCcx7AKFqWBSx7pJE" />
+
+
+
+
+
+
+<meta name="baidu-site-verification" content="ogR68Gkf6a" />
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="hadoop 机器学习 java," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="背景股市新闻包含财务数据、经营公告、行业动向、国家政策等大量文本信息，包含了一定的情感倾向，影响股民对公司股票未来走势的预期，进一步造成公司的股价波动。如果能够挖掘出这些新闻中蕴含的情感信息，则可以对股票价格进行预测，对于指导投资有很大的作用。 本实验尝试使用文本挖掘技术和机器学习算法，挖掘出新闻中蕴含的情感信息，分别将每条新闻的情感判别为“positive”、“neutral”、“negativ">
+<meta name="keywords" content="hadoop 机器学习 java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="上市公司财经新闻情感分析">
+<meta property="og:url" content="https://jyzhangchn.github.io/hadoop-sentiment.html">
+<meta property="og:site_name" content="Jennifer&#39;s Blog">
+<meta property="og:description" content="背景股市新闻包含财务数据、经营公告、行业动向、国家政策等大量文本信息，包含了一定的情感倾向，影响股民对公司股票未来走势的预期，进一步造成公司的股价波动。如果能够挖掘出这些新闻中蕴含的情感信息，则可以对股票价格进行预测，对于指导投资有很大的作用。 本实验尝试使用文本挖掘技术和机器学习算法，挖掘出新闻中蕴含的情感信息，分别将每条新闻的情感判别为“positive”、“neutral”、“negativ">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://jyzhangchn.github.io/media/15134914723501/15136040760630.jpg">
+<meta property="og:image" content="https://jyzhangchn.github.io/hadoop-sentiment/1.jpg">
+<meta property="og:image" content="https://jyzhangchn.github.io/hadoop-sentiment/2.jpg">
+<meta property="og:image" content="https://jyzhangchn.github.io/hadoop-sentiment/3.jpg">
+<meta property="og:image" content="https://jyzhangchn.github.io/hadoop-sentiment/4.jpg">
+<meta property="og:image" content="https://jyzhangchn.github.io/hadoop-sentiment/5.jpg">
+<meta property="og:image" content="https://jyzhangchn.github.io/hadoop-sentiment/6.jpg">
+<meta property="og:updated_time" content="2018-04-14T07:03:38.921Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="上市公司财经新闻情感分析">
+<meta name="twitter:description" content="背景股市新闻包含财务数据、经营公告、行业动向、国家政策等大量文本信息，包含了一定的情感倾向，影响股民对公司股票未来走势的预期，进一步造成公司的股价波动。如果能够挖掘出这些新闻中蕴含的情感信息，则可以对股票价格进行预测，对于指导投资有很大的作用。 本实验尝试使用文本挖掘技术和机器学习算法，挖掘出新闻中蕴含的情感信息，分别将每条新闻的情感判别为“positive”、“neutral”、“negativ">
+<meta name="twitter:image" content="https://jyzhangchn.github.io/media/15134914723501/15136040760630.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://jyzhangchn.github.io/hadoop-sentiment.html"/>
+
+
+
+
+
+  <title>上市公司财经新闻情感分析 | Jennifer's Blog</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?07c94a16d9c0a1f9fd78cb095d9bfa16";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Jennifer's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">welcome</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://jyzhangchn.github.io/hadoop-sentiment.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jennifer Zhang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/gavin.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jennifer's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">上市公司财经新闻情感分析</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-27T14:51:45+08:00">
+                2017-11-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/大数据/" itemprop="url" rel="index">
+                    <span itemprop="name">大数据</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/hadoop-sentiment.html" class="leancloud_visitors" data-flag-title="上市公司财经新闻情感分析">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2,381 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  9 min
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>股市新闻包含<strong>财务数据、经营公告、行业动向、国家政策</strong>等大量文本信息，包含了一定的情感倾向，影响股民对公司股票未来走势的预期，进一步造成公司的股价波动。如果能够挖掘出这些新闻中蕴含的情感信息，则可以对股票价格进行预测，对于指导投资有很大的作用。</p>
+<p>本实验尝试使用<strong>文本挖掘技术</strong>和<strong>机器学习算法</strong>，挖掘出新闻中蕴含的<strong>情感信息</strong>，分别将每条新闻的情感判别为<strong>“positive”、“neutral”、“negative”</strong>这三种情感中的一种，可根据抓取的所有新闻的情感汇总分析来对股票价格做预测。</p>
+<h2 id="数据集说明"><a href="#数据集说明" class="headerlink" title="数据集说明"></a>数据集说明</h2><p>样本集：指标有negative、 neutral、positive词性的数据集<br>测试集：指待分类股票标题数据集</p>
+<h2 id="主要设计思路"><a href="#主要设计思路" class="headerlink" title="主要设计思路"></a>主要设计思路</h2><p>将需求主要要分解成如下几个步骤：</p>
+<ol>
+<li>数据预处理<ol>
+<li>从原始数据集中提取新闻标题并分词</li>
+<li>数据清洗（清洗分词后仍出现的非中文字符）</li>
+<li>对样本集三个情感标签下的词组分别进行词频统计</li>
+</ol>
+</li>
+<li>文本向量化<ol>
+<li>分别对样本集和测试集中的词组计算tf-idf值</li>
+<li>为了方便后续处理，将tf-idf值*10000进行扩大</li>
+<li>根据一个词和对应的tf-idf值将文本转化成向量数组</li>
+</ol>
+</li>
+<li>特征选择<ul>
+<li>根据样本集中tf-idf值，在三类情感中每类选出500词共1500词作为特征词</li>
+</ul>
+</li>
+<li>模型训练&amp;分类<ul>
+<li>KNN算法</li>
+<li>NaiveBayes</li>
+<li>决策树</li>
+<li>随机森林</li>
+</ul>
+</li>
+</ol>
+<h2 id="程序说明"><a href="#程序说明" class="headerlink" title="程序说明"></a>程序说明</h2><h3 id="数据预处理"><a href="#数据预处理" class="headerlink" title="数据预处理"></a>数据预处理</h3><h4 id="segment-java"><a href="#segment-java" class="headerlink" title="segment.java"></a>segment.java</h4><ul>
+<li>对新闻标题和样本集的内容进行分词</li>
+<li>数据清洗：用正则表达式除去非中文字符</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String titles = StringUtils.strip(tempseg.toString().replaceAll(<span class="string">"[,.%/(A-Za-z0-9)]"</span>,<span class="string">""</span>),<span class="string">"[]"</span>);</span><br><span class="line">titles = titles.replace(<span class="string">"\\s+"</span>,<span class="string">" "</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="文本向量化"><a href="#文本向量化" class="headerlink" title="文本向量化"></a>文本向量化</h3><h4 id="Tfidf-java"><a href="#Tfidf-java" class="headerlink" title="Tfidf.java"></a>Tfidf.java</h4><blockquote>
+<p>TF-IDF是一种统计方法，用以评估一字词对于一个文件集或一个语料库中的其中一份文件的重要程度。字词的重要性随着它在文件中出现的次数成正比增加，但同时会随着它在语料库中出现的频率成反比下降。TF-IDF加权的各种形式常被搜索引擎应用，作为文件与用户查询之间相关程度的度量或评级。除了TF-IDF以外，因特网上的搜索引擎还会使用基于链接分析的评级方法，以确定文件在搜寻结果中出现的顺序。</p>
+<p>来源：百度百科</p>
+</blockquote>
+<p>TF（term frequency）即一个词在该文本中的词频<br>IDF（inverse document frequency）是指逆向文件频率<br>一个词的Tf-Idf值标识着它对于该文本的重要性，即一个词在该文本中出现的次数越多而在整个语料库中出现的次数越少就越能说明这个词能在很大程度上代表这个文本。故Tf-Idf相对于单纯的词频统计来说能够使得在所有文本中都出现的词如“股票”“公司”“新闻”等的权重下降，从而突出能够代表文本的特征词<br>因此可以用Tf-Idf值可以过滤常用词并保留重要词，总而可以进行特征选择</p>
+<p>Tf-Idf的java实现为分别计算一个词的tf值和idf值，然后将两者相乘（并扩大10000倍）作为其Tf-Idf值，并和对应的词组映射在哈希表最后将结果按照tf-idf值降序输出</p>
+<p>tf值计算：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">int wordLen = cutwords.size();</span><br><span class="line">HashMap&lt;String, Integer&gt; intTF = TfIdf.normalTF(cutwords);</span><br><span class="line">Iterator iter = intTF.entrySet().iterator(); </span><br><span class="line">while(iter.hasNext())&#123;</span><br><span class="line">    Map.Entry entry = (Map.Entry)iter.next();</span><br><span class="line">    resTF.put(entry.getKey().toString(), Float.parseFloat(entry.getValue().toString()) / wordLen);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>idf值计算：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">float value = (float)Math.log(docNum / Float.parseFloat(entry.getValue().toString()));</span><br></pre></td></tr></table></figure>
+<p>tf-idf计算：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">while(iter.hasNext())&#123;</span><br><span class="line">    Map.Entry entry = (Map.Entry)iter.next();</span><br><span class="line">    String word = entry.getKey().toString();</span><br><span class="line">    Float value = (float)Float.parseFloat(entry.getValue().toString())*idfs.get(word)*10000;</span><br><span class="line">    TfIdf.put(word, value);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="word2vec-java"><a href="#word2vec-java" class="headerlink" title="word2vec.java"></a>word2vec.java</h4><p>文本向量化主要思路：</p>
+<ol>
+<li>准备特征词<code>features.txt</code>（包含1500个特征词）</li>
+<li>对样本集/测试集中每个文本建立一个1500维的数组（分别对应1500个特征词），将文本中的词组和特征词进行比对，若样本集/测试集中出现了某个特征词则把该词的tf-idf值传给数组，若没有则为0</li>
+<li>根据后序算法所需输入格式相应调整输出格式</li>
+</ol>
+<p>关键部分代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">while ((temp0 = br1.readLine()) != null) &#123;</span><br><span class="line">    temp1 = temp0.split(&quot; &quot;);</span><br><span class="line">    k = dic.indexOf(temp1[0]);</span><br><span class="line">    if (k != -1) &#123;</span><br><span class="line">        vec[k] = temp1[1];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="KNN模型训练及分类"><a href="#KNN模型训练及分类" class="headerlink" title="KNN模型训练及分类"></a>KNN模型训练及分类</h3><p>KNN就是根据某种距离度量检测未知数据与已知数据的距离，统计其中距离最近的k个已知数据的类别，以多数投票的形式确定未知数据的类别。</p>
+<p>源程序共定义了三个class文件，分别是：</p>
+<ul>
+<li>KNNNode：KNN结点类，用来存储最近邻的k个元组相关的信息</li>
+<li>KNN：KNN算法主体类 </li>
+<li>TestKNN：KNN算法测试类 </li>
+</ul>
+<h4 id="TestKNN-java"><a href="#TestKNN-java" class="headerlink" title="TestKNN.java"></a>TestKNN.java</h4><p><code>public void read（）</code> ：读取文件中的数据，存储为数组的形式（以嵌套链表的形式实现）List&lt;List<double>&gt; datas</double></p>
+<p><code>main</code> ：读入样本集和测试集的数据，然后输出测试集的分类</p>
+<p>在此程序中由于需要分为negative、neutral、positive三类，故k=3</p>
+<h4 id="KNN-java"><a href="#KNN-java" class="headerlink" title="KNN.java"></a>KNN.java</h4><p>此程序定义了一个大小为k的优先级队列来存储k个最近邻节点<br>优先级队列初始默认是距离越远越优先<br>根据算法中的实现，将与测试集最近的k个节点保存下来</p>
+<h4 id="KNNNode-java"><a href="#KNNNode-java" class="headerlink" title="KNNNode.java"></a>KNNNode.java</h4><p>用来存储最近邻的k个元组相关的信息</p>
+<h4 id="KNN输入文件"><a href="#KNN输入文件" class="headerlink" title="KNN输入文件"></a>KNN输入文件</h4><p>训练集：knntrain.txt<br>格式：【tfidf值1】【tfidf值2】···【tfidf值1500】【 分类标号】<br>示例：（以二维数据为例）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">0.1887    0.3276    -1</span><br><span class="line">0.8178    0.7703    1</span><br><span class="line">0.6761    0.4849    -1</span><br><span class="line">0.6022    0.6878    -1</span><br><span class="line">0.1759    0.8217    -1</span><br><span class="line">0.2607    0.3502    1</span><br><span class="line">0.2875    0.6713    -1</span><br><span class="line">0.9160    0.7363    -1</span><br><span class="line">0.1615    0.2564    1</span><br><span class="line">0.2653    0.9452    1</span><br><span class="line">0.0911    0.4386    -1</span><br></pre></td></tr></table></figure>
+<p>测试集：knndata.txt<br>格式：【tfidf值1】【tfidf值2】···【tfidf值1500】<br>示例：（以二维数据为例）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">0.9516    0.0326</span><br><span class="line">0.9203    0.5612</span><br><span class="line">0.0527    0.8819</span><br><span class="line">0.7379    0.6692</span><br><span class="line">0.2691    0.1904</span><br><span class="line">0.4228    0.3689</span><br><span class="line">0.5479    0.4607</span><br><span class="line">0.9427    0.9816</span><br></pre></td></tr></table></figure>
+<h4 id="KNN分类结果"><a href="#KNN分类结果" class="headerlink" title="KNN分类结果"></a>KNN分类结果</h4><p>股票数据集KNN算法输出结果部分截图：</p>
+<p><img src="media/15134914723501/15136040760630.jpg" alt=""></p>
+<h3 id="NaiveBayes模型训练及分类"><a href="#NaiveBayes模型训练及分类" class="headerlink" title="NaiveBayes模型训练及分类"></a>NaiveBayes模型训练及分类</h3><h4 id="代码结构"><a href="#代码结构" class="headerlink" title="代码结构"></a>代码结构</h4><p>NaiveBayesMain.java 主程序入口<br>NaiveBayesConf.java 用于处理配置文件<br>NaiveBayesTrain.java 用于训练过程的MapReduce 描述<br>NaiveBayesTrainData.java 在测试过程之前，读取训练后数据<br>NaiveBayesTest.java 用于测试（分类）过程的MapReduce 描述</p>
+<h4 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h4><p>配置文件NBayes.conf用于描述分类内容<br>格式：</p>
+<ul>
+<li>第一行，第一个是分类的个数N，后面跟着N个字符串（空格分隔）每个代表类名</li>
+<li>第二行，第一个是类中属性的个数M，后面跟着M个&lt;字符串，整数&gt;的分组</li>
+<li>第二行的每个分组中的字符串是属性名，整数是该属性最大值</li>
+</ul>
+<p>举例说明：3个分类，类名为cl1,cl2,cl3；分类有3个属性（即词组），为p1,p2,p3</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">3 cl1 cl2 cl3 </span><br><span class="line">p1 10000 p2 10000 p3 10000</span><br></pre></td></tr></table></figure>
+<p>NBayes.train<br>用来存放训练集<br>每一行描述一个训练向量，每行第一个为类名，后面接M个值，空格分隔，代表此向量各属性值<br>举例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cl1 3 4 6</span><br><span class="line">cl2 1 8 7</span><br></pre></td></tr></table></figure>
+<p> NBayes.test<br>用来存放测试集<br>每一行描述一个训练向量，每行第一个该变量ID，后面接M个值，空格分隔，代表此向量各属性值<br>举例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1 6 9 3</span><br><span class="line">2 4 8 1</span><br></pre></td></tr></table></figure>
+<h4 id="分类结果"><a href="#分类结果" class="headerlink" title="分类结果"></a>分类结果</h4><p>并不令人满意</p>
+<h3 id="weka"><a href="#weka" class="headerlink" title="weka"></a>weka</h3><blockquote>
+<p>Weka是一款免费的，非商业化的，基于JAVA环境下开源的机器学习（machine learning）以及数据挖掘（data mining）软件。<br>来源：百度百科</p>
+</blockquote>
+<p>weka具有GUI图形界面&amp;java调用接口</p>
+<h4 id="arff-java"><a href="#arff-java" class="headerlink" title="arff.java"></a>arff.java</h4><p>arff.java负责根据样本集和数据集来生成weka所需的输入文件格式为.arff格式</p>
+<p>arff需要属性和分类，本程序把上一步生成的1000维tfidf数组作为1000个词组属性，把positive、neutral、negative作为分类。</p>
+<p>训练集：1500实例，1001属性（1000维+1分类）<br><img src="/hadoop-sentiment/1.jpg"></p>
+<blockquote>
+<p>来源：weka GUI界面</p>
+</blockquote>
+<p>数据集：3267实例（3267个股票），1001属性<br><img src="/hadoop-sentiment/2.jpg"></p>
+<blockquote>
+<p>来源：weka GUI界面</p>
+</blockquote>
+<h4 id="weka-java"><a href="#weka-java" class="headerlink" title="weka.java"></a>weka.java</h4><p>weka.java调用weka接口，实现了朴素贝叶斯、决策树、随机森林三个机器学习算法的数据挖掘</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//此方法负责把分类后生成的arff结果文件中的</span></span><br><span class="line"><span class="comment">//类标签提取出来并和股票新闻标题一并输出</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">getWekaResult</span><span class="params">(String arff, String out)</span> </span>&#123;</span><br><span class="line">    ……</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//此方法负责训练分类器并对数据集进行分类并进行交叉验证评估</span></span><br><span class="line"><span class="comment">//最后输出至.arff文件</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">classify</span><span class="params">(String classifyName, Instances train, String result)</span> <span class="keyword">throws</span> Exception</span>&#123;</span><br><span class="line">    ……</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>三种算法正确率评估截图（用样本集交叉验证评估）：</p>
+<img src="/hadoop-sentiment/3.jpg">
+<p>三种算法分类后结果部分对比：</p>
+<p>朴素贝叶斯：<br><img src="/hadoop-sentiment/4.jpg"> </p>
+<p>决策树：<br><img src="/hadoop-sentiment/5.jpg"></p>
+<p>随机森林:<br><img src="/hadoop-sentiment/6.jpg"></p>
+<hr>
+<p>相关文章<br><a href="http://jyzhangchn.com/wordcount.html" target="_blank" rel="noopener">基于Hadoop的股票新闻标题词频统计</a><br><a href="http://jyzhangchn.com/hadoop-url.html" target="_blank" rel="noopener">基于Hadoop的文档倒排索引</a></p>
+
+
+        <!--文章底部内容-->
+
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/hadoop-机器学习-java/" rel="tag"># hadoop 机器学习 java</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/hadoop-url.html" rel="next" title="基于Hadoop的文档倒排索引">
+                <i class="fa fa-chevron-left"></i> 基于Hadoop的文档倒排索引
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/hive.html" rel="prev" title="mac下Hive+MySql环境配置">
+                mac下Hive+MySql环境配置 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+<span class="jiathis_txt">分享到：</span>
+<a class="jiathis_button_fav">收藏夹</a>
+<a class="jiathis_button_copy">复制网址</a>
+<a class="jiathis_button_email">邮件</a>
+<a class="jiathis_button_weixin">微信</a>
+<a class="jiathis_button_qzone">QQ空间</a>
+<a class="jiathis_button_tqq">腾讯微博</a>
+<a class="jiathis_button_douban">豆瓣</a>
+<a class="jiathis_button_share">一键分享</a>
+
+<a href="http://www.jiathis.com/share?uid=2140465" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+<a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+var jiathis_config={
+  data_track_clickback:true,
+  summary:"",
+  shortUrl:false,
+  hideMore:false
+}
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/gavin.JPG"
+                alt="Jennifer Zhang" />
+            
+              <p class="site-author-name" itemprop="name">Jennifer Zhang</p>
+              <p class="site-description motion-element" itemprop="description">In me the tiger sniffs the rose.</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/jyzhangchn" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:jyzhangchn@outlook.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Friends
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://bus1996.me" title="BUS1996" target="_blank">BUS1996</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.garenfeather.cn" title="GarenFeather" target="_blank">GarenFeather</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://idealclover.top" title="Idealclover" target="_blank">Idealclover</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="aneureka.github.io" title="Aneureka" target="_blank">Aneureka</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://hitigerzzz.github.io" title="Hitigerzzz" target="_blank">Hitigerzzz</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://lizhihao6.github.io" title="lizhihao" target="_blank">lizhihao</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#背景"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据集说明"><span class="nav-number">2.</span> <span class="nav-text">数据集说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主要设计思路"><span class="nav-number">3.</span> <span class="nav-text">主要设计思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#程序说明"><span class="nav-number">4.</span> <span class="nav-text">程序说明</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据预处理"><span class="nav-number">4.1.</span> <span class="nav-text">数据预处理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#segment-java"><span class="nav-number">4.1.1.</span> <span class="nav-text">segment.java</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文本向量化"><span class="nav-number">4.2.</span> <span class="nav-text">文本向量化</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Tfidf-java"><span class="nav-number">4.2.1.</span> <span class="nav-text">Tfidf.java</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#word2vec-java"><span class="nav-number">4.2.2.</span> <span class="nav-text">word2vec.java</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#KNN模型训练及分类"><span class="nav-number">4.3.</span> <span class="nav-text">KNN模型训练及分类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#TestKNN-java"><span class="nav-number">4.3.1.</span> <span class="nav-text">TestKNN.java</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#KNN-java"><span class="nav-number">4.3.2.</span> <span class="nav-text">KNN.java</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#KNNNode-java"><span class="nav-number">4.3.3.</span> <span class="nav-text">KNNNode.java</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#KNN输入文件"><span class="nav-number">4.3.4.</span> <span class="nav-text">KNN输入文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#KNN分类结果"><span class="nav-number">4.3.5.</span> <span class="nav-text">KNN分类结果</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NaiveBayes模型训练及分类"><span class="nav-number">4.4.</span> <span class="nav-text">NaiveBayes模型训练及分类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#代码结构"><span class="nav-number">4.4.1.</span> <span class="nav-text">代码结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#配置文件"><span class="nav-number">4.4.2.</span> <span class="nav-text">配置文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分类结果"><span class="nav-number">4.4.3.</span> <span class="nav-text">分类结果</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#weka"><span class="nav-number">4.5.</span> <span class="nav-text">weka</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#arff-java"><span class="nav-number">4.5.1.</span> <span class="nav-text">arff.java</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#weka-java"><span class="nav-number">4.5.2.</span> <span class="nav-text">weka.java</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2017 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jennifer Zhang</span>
+
+  
+</div>
+
+
+
+
+  <span>Hosted by <a href="https://pages.coding.me" >Coding Pages</a></span>
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("TYKfqtFTPNGIjeo5vvr5hd8t-gzGzoHsz", "g3KnWVrl9e794cUtEWeUM7j0");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

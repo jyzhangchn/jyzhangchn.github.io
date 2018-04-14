@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://jyzhangchn.github.io/hadoop-sentiment.html</loc>
+    
+    <lastmod>2018-04-14T07:03:38.921Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jyzhangchn.github.io/hadoop-url.html</loc>
+    
+    <lastmod>2018-04-14T07:03:37.499Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jyzhangchn.github.io/wordcount.html</loc>
+    
+    <lastmod>2018-04-14T07:03:35.913Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://jyzhangchn.github.io/hive.html</loc>
     
     <lastmod>2018-04-14T03:37:57.398Z</lastmod>
@@ -47,20 +68,6 @@
     <loc>https://jyzhangchn.github.io/worpress.html</loc>
     
     <lastmod>2018-04-14T03:26:24.031Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://jyzhangchn.github.io/hadoop-url.html</loc>
-    
-    <lastmod>2018-04-14T03:12:59.036Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://jyzhangchn.github.io/wordcount.html</loc>
-    
-    <lastmod>2018-04-14T03:12:02.688Z</lastmod>
     
   </url>
   

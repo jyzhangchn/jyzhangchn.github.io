@@ -4,6 +4,66 @@
 
     
   <url>
+    <loc>http://jyzhangchn.coding.me/hadoop-sentiment.html</loc>
+    <lastmod>2018-04-14T07:03:38.921Z</lastmod>
+    <data>
+        <display>
+        <title>上市公司财经新闻情感分析</title>
+        <pubTime>2017-11-27T06:51:45.000Z</pubTime>
+        
+        <tag>hadoop 机器学习 java</tag>
+         
+         
+           
+             
+              <breadCrumb title="大数据" url="http://jyzhangchn.coding.me/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jyzhangchn.coding.me/hadoop-url.html</loc>
+    <lastmod>2018-04-14T07:03:37.499Z</lastmod>
+    <data>
+        <display>
+        <title>基于Hadoop的文档倒排索引</title>
+        <pubTime>2017-11-14T02:35:34.000Z</pubTime>
+        
+        <tag>hadoop java</tag>
+         
+         
+           
+             
+              <breadCrumb title="大数据" url="http://jyzhangchn.coding.me/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jyzhangchn.coding.me/wordcount.html</loc>
+    <lastmod>2018-04-14T07:03:35.913Z</lastmod>
+    <data>
+        <display>
+        <title>基于Hadoop的股票新闻标题词频统计</title>
+        <pubTime>2017-11-12T02:30:50.000Z</pubTime>
+        
+        <tag>hadoop java</tag>
+         
+         
+           
+             
+              <breadCrumb title="大数据" url="http://jyzhangchn.coding.me/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://jyzhangchn.coding.me/hive.html</loc>
     <lastmod>2018-04-14T03:37:57.398Z</lastmod>
     <data>
@@ -114,40 +174,6 @@
         <pubTime>2017-10-11T11:45:57.000Z</pubTime>
         
         <tag>wordpress</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://jyzhangchn.coding.me/hadoop-url.html</loc>
-    <lastmod>2018-04-14T03:12:59.036Z</lastmod>
-    <data>
-        <display>
-        <title>基于Hadoop的文档倒排索引</title>
-        <pubTime>2017-11-14T02:35:34.000Z</pubTime>
-        
-        <tag>hadoop</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://jyzhangchn.coding.me/wordcount.html</loc>
-    <lastmod>2018-04-14T03:12:02.688Z</lastmod>
-    <data>
-        <display>
-        <title>基于Hadoop的股票新闻标题词频统计</title>
-        <pubTime>2017-11-12T02:30:50.000Z</pubTime>
-        
-        <tag>hadoop</tag>
          
          
            
