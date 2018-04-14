@@ -70,7 +70,7 @@
 
 
 
-  <meta name="keywords" content="shell," />
+  <meta name="keywords" content="hadoop," />
 
 
 
@@ -81,27 +81,25 @@
 
 
 
-<meta name="description" content="之前介绍过了bash切换zsh 以及 oh-my-zsh配置和主题自定义，今天来介绍一些好用的插件。保你用顺手后命令行操作顺手得飞起！">
-<meta name="keywords" content="shell">
+<meta name="description" content="需求针对股票新闻数据集，以新闻标题中的词组为key，编写带URL属性的文档倒排索引程序，将结果输出到指定文件。 主要设计思路可将需求具体拆解成如下步骤：  在WordCount.java中获取股票新闻标题分词+url 在InvertedIndexer.java中输出词组+url  文件流设计如下： 考虑到本数据集数据较大，一个词组会输出上万个url的情况，为了更加方便直观的查看词组对应的每个url">
+<meta name="keywords" content="hadoop">
 <meta property="og:type" content="article">
-<meta property="og:title" content="oh-my-zsh 插件介绍">
-<meta property="og:url" content="https://jyzhangchn.github.io/oh-my-zsh-diy.html">
+<meta property="og:title" content="基于Hadoop的文档倒排索引">
+<meta property="og:url" content="https://jyzhangchn.github.io/hadoop-url.html">
 <meta property="og:site_name" content="Jennifer&#39;s Blog">
-<meta property="og:description" content="之前介绍过了bash切换zsh 以及 oh-my-zsh配置和主题自定义，今天来介绍一些好用的插件。保你用顺手后命令行操作顺手得飞起！">
+<meta property="og:description" content="需求针对股票新闻数据集，以新闻标题中的词组为key，编写带URL属性的文档倒排索引程序，将结果输出到指定文件。 主要设计思路可将需求具体拆解成如下步骤：  在WordCount.java中获取股票新闻标题分词+url 在InvertedIndexer.java中输出词组+url  文件流设计如下： 考虑到本数据集数据较大，一个词组会输出上万个url的情况，为了更加方便直观的查看词组对应的每个url">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://jyzhangchn.github.io/oh-my-zsh-diy/5.jpg">
-<meta property="og:image" content="https://jyzhangchn.github.io/oh-my-zsh-diy/6.gif">
-<meta property="og:image" content="https://jyzhangchn.github.io/oh-my-zsh-diy/websearch.gif">
-<meta property="og:image" content="https://jyzhangchn.github.io/oh-my-zsh-diy/st.gif">
-<meta property="og:image" content="https://jyzhangchn.github.io/oh-my-zsh-diy/7.gif">
-<meta property="og:image" content="https://jyzhangchn.github.io/oh-my-zsh-diy/8.gif">
-<meta property="og:image" content="https://jyzhangchn.github.io/oh-my-zsh-diy/9.jpg">
-<meta property="og:image" content="https://jyzhangchn.github.io/oh-my-zsh-diy/osx.png">
-<meta property="og:updated_time" content="2018-03-17T15:49:13.161Z">
+<meta property="og:image" content="https://jyzhangchn.github.io/hadoop-url/1.jpg">
+<meta property="og:image" content="https://jyzhangchn.github.io/hadoop-url/2.jpg">
+<meta property="og:image" content="https://jyzhangchn.github.io/hadoop-url/4.jpg">
+<meta property="og:image" content="https://jyzhangchn.github.io/hadoop-url/5.jpg">
+<meta property="og:image" content="https://jyzhangchn.github.io/hadoop-url/6.jpg">
+<meta property="og:image" content="https://jyzhangchn.github.io/hadoop-url/7.jpg">
+<meta property="og:updated_time" content="2018-04-14T03:02:13.584Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="oh-my-zsh 插件介绍">
-<meta name="twitter:description" content="之前介绍过了bash切换zsh 以及 oh-my-zsh配置和主题自定义，今天来介绍一些好用的插件。保你用顺手后命令行操作顺手得飞起！">
-<meta name="twitter:image" content="https://jyzhangchn.github.io/oh-my-zsh-diy/5.jpg">
+<meta name="twitter:title" content="基于Hadoop的文档倒排索引">
+<meta name="twitter:description" content="需求针对股票新闻数据集，以新闻标题中的词组为key，编写带URL属性的文档倒排索引程序，将结果输出到指定文件。 主要设计思路可将需求具体拆解成如下步骤：  在WordCount.java中获取股票新闻标题分词+url 在InvertedIndexer.java中输出词组+url  文件流设计如下： 考虑到本数据集数据较大，一个词组会输出上万个url的情况，为了更加方便直观的查看词组对应的每个url">
+<meta name="twitter:image" content="https://jyzhangchn.github.io/hadoop-url/1.jpg">
 
 
 
@@ -131,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="https://jyzhangchn.github.io/oh-my-zsh-diy.html"/>
+  <link rel="canonical" href="https://jyzhangchn.github.io/hadoop-url.html"/>
 
 
 
 
 
-  <title>oh-my-zsh 插件介绍 | Jennifer's Blog</title>
+  <title>基于Hadoop的文档倒排索引 | Jennifer's Blog</title>
   
 
 
@@ -284,7 +282,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://jyzhangchn.github.io/oh-my-zsh-diy.html">
+    <link itemprop="mainEntityOfPage" href="https://jyzhangchn.github.io/hadoop-url.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jennifer Zhang">
@@ -301,7 +299,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">oh-my-zsh 插件介绍</h1>
+          <h1 class="post-title" itemprop="name headline">基于Hadoop的文档倒排索引</h1>
         
 
         <div class="post-meta">
@@ -313,8 +311,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-23T23:09:40+08:00">
-                2017-12-23
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-14T10:35:34+08:00">
+                2017-11-14
               </time>
             
 
@@ -331,7 +329,7 @@
 
           
           
-             <span id="/oh-my-zsh-diy.html" class="leancloud_visitors" data-flag-title="oh-my-zsh 插件介绍">
+             <span id="/hadoop-url.html" class="leancloud_visitors" data-flag-title="基于Hadoop的文档倒排索引">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -356,7 +354,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  820 字
+                  1,454 字
                 </span>
               
 
@@ -372,7 +370,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3 min
+                  6 min
                 </span>
               
             </div>
@@ -393,36 +391,49 @@
       
 
       
-        <p>之前介绍过了<a href="https://jyzhangchn.github.io/2017/12/21/bash2zsh/">bash切换zsh</a> 以及 <a href="https://jyzhangchn.github.io/2017/12/22/oh-my-zsh/">oh-my-zsh配置和主题自定义</a>，今天来介绍一些好用的插件。保你用顺手后命令行操作顺手得飞起！</p>
-<a id="more"></a>
-<h2 id="插件介绍"><a href="#插件介绍" class="headerlink" title="插件介绍"></a>插件介绍</h2><p>oh-my-zsh最强大的地方在于超级多的插件支持，全部的插件介绍在github中可查看：<br><a href="https://github.com/robbyrussell/oh-my-zsh/wiki/Plugins" target="_blank" rel="noopener">oh-my-zsh插件介绍</a></p>
-<p>插件在本地的路径：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">~/.oh-my-zsh/plugins  //插件路径</span><br></pre></td></tr></table></figure>
-<p>可以在github中看所有插件统一的介绍，也可以去插件文件夹里具体看每一种插件的.md文件</p>
-<p>插件的配置也在~/.zshrc中，一般的插件在plugins=( )中添加你需要的插件名称即可，有几种需要从git中安装，每个插件.md的文档中都有介绍。下图中<code>plugins=( )</code> 括号内的我添加的插件，下面两行是需要git安装或其他安装方法安装的插件。</p>
-<img src="/oh-my-zsh-diy/5.jpg">
-<p>这里介绍几种好用的插件：</p>
-<h3 id="zsh-syntax-highlighting"><a href="#zsh-syntax-highlighting" class="headerlink" title="zsh-syntax-highlighting"></a>zsh-syntax-highlighting</h3><p>高亮所有支持的命令<br>不支持的命令会显示为红色<br>可能有人会觉得这个很鸡肋，支不支持我一个回车不就晓得啦？不支持自然会有<code>command not found</code> 提示，但亲身使用后会发现这是一个很省时间和贴心的插件</p>
-<h3 id="zsh-autosuggestions"><a href="#zsh-autosuggestions" class="headerlink" title="zsh-autosuggestions"></a>zsh-autosuggestions</h3><p>这个插件能够记录你历史输入的所有命令，并在你输入前几个字母的时候显示历史命令所谓建议。可有效减少多次输入重复的命令的情况。</p>
-<img src="/oh-my-zsh-diy/6.gif">
-<h3 id="web-search"><a href="#web-search" class="headerlink" title="web-search"></a>web-search</h3><p>web-search提供了在命令行搜索网页的功能，支持百度，必应、谷歌（自己负责科学上网）等。用法是搜索引擎+需要搜索的内容，然后电脑会打开默认浏览器进行搜索。<br>用法如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">baidu 南京天气</span><br><span class="line">bing nanjing</span><br><span class="line">google StackOverflow</span><br></pre></td></tr></table></figure>
-<img src="/oh-my-zsh-diy/websearch.gif">
-<h3 id="sublime"><a href="#sublime" class="headerlink" title="sublime"></a>sublime</h3><p>一款在快速命令行用sublime Text打开文件的插件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">st          # 直接打开sublime</span><br><span class="line">st file_a   # 用sublime打开文件 file</span><br><span class="line">st dir_a    # 用sublime打开目录 dir</span><br><span class="line">stt         # 在sublime打开当前目录，相当于 st .</span><br></pre></td></tr></table></figure>
-<img src="/oh-my-zsh-diy/st.gif">
-<h3 id="z-autojump"><a href="#z-autojump" class="headerlink" title="z / autojump"></a>z / autojump</h3><p>z和autojump都是强大的目录自动跳转命令，会记忆你曾经进入过的目录，用模糊匹配快速进入你想要的目录。 安装一款即可，我两个都用过，留下来的是z，没什么特殊的原因，随便选一个就好。</p>
-<p>命令格式：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">z 路径名</span><br></pre></td></tr></table></figure>
-<img src="/oh-my-zsh-diy/7.gif">
-<h3 id="d"><a href="#d" class="headerlink" title="d"></a>d</h3><p>快速目录跳转<br>在终端输入d 显示最近频繁进入的路径，然后输入路径前对应的序号可快速进入对应路径</p>
-<img src="/oh-my-zsh-diy/8.gif">
-<h3 id="history"><a href="#history" class="headerlink" title="history"></a>history</h3><p>查看历史输入所有命令<br>用法：在终端输入h即可</p>
-<img src="/oh-my-zsh-diy/9.jpg">
-<h3 id="osx"><a href="#osx" class="headerlink" title="osx"></a>osx</h3><p>仅支持Mac OSX系统，支持一键进入当前finder路径、在命令行返回最前面的finder窗口的路径等。详细命令如下：</p>
-<img src="/oh-my-zsh-diy/osx.png">
-<p>好了这篇够长的了目前先介绍这些~ 更多的可以去github上看介绍挖掘自己需要的插件~<br>友情提示：装太多插件进入命令行的速度会变慢，所以只安装自己最需要的几款就好啦~</p>
-<p>前文回顾：<br><a href="https://jyzhangchn.github.io/2017/12/21/bash2zsh/">mac OS/Linux/Unix下bash切换oh-my-zsh</a><br><a href="https://jyzhangchn.github.io/2017/12/22/oh-my-zsh/">终端shell美化：oh-my-zsh配置</a></p>
+        <h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><p>针对股票新闻数据集，以新闻标题中的词组为key，编写带URL属性的文档倒排索引程序，将结果输出到指定文件。</p>
+<h2 id="主要设计思路"><a href="#主要设计思路" class="headerlink" title="主要设计思路"></a>主要设计思路</h2><p>可将需求具体拆解成如下步骤：</p>
+<ol>
+<li>在WordCount.java中获取股票新闻标题分词+url</li>
+<li>在InvertedIndexer.java中输出词组+url</li>
+</ol>
+<p>文件流设计如下：<br><img src="/hadoop-url/1.jpg"></p>
+<p>考虑到本数据集数据较大，一个词组会输出上万个url的情况，为了更加方便直观的查看词组对应的每个url，故将日期也同步以升序输出。</p>
+<h2 id="算法设计"><a href="#算法设计" class="headerlink" title="算法设计"></a>算法设计</h2><p>需求本质是文档倒排索引，与传统的文档倒排索引不同的地方在于本程序并非以文档名称为索引，而是以新闻标题对应的url为索引，另外为了更加直观，本程序还对应输出了每个url对应的日期。</p>
+<p>一个倒排作引由大量的posting列表组成，每一个posting列表和一个词组相关联，每个posting表示对应词组在一个文档的payload信息，包括URL、词频和新闻日期。</p>
+<p>Mapper将 <code>&lt;词组#url#日期，词频</code>&gt; 作为输出的<code>\&lt;key,value&gt;</code>对，然后使用Combiner将Mapper的输出结果中value部分的词频进行统计；接着自定义 <code>HashPartitioner</code>，把组合的主键临时拆开，使得Partitioner单纯按照词组进行分区选择正确的Reduce节点，即将传入的key按照<code>#</code>进行分割出词组，使得 <code>&lt;词组#url#日期，词频&gt;</code>格式的key值只按照词组分发给Reducer，这样可保证同一个词组下的键值对一定被分到同一个Reduce节点。</p>
+<p>Reducer从Partitioner得到键值对后，key值被进一步分割为词组、url和日期，由于Reduce自动按照key值升序排序，为了实现按照日期升序排序，故将url和日期的位置进行调换，即变成<code>日期 url</code>的形式，便可自动升序排序。</p>
+<h2 id="程序和各个类的设计说明"><a href="#程序和各个类的设计说明" class="headerlink" title="程序和各个类的设计说明"></a>程序和各个类的设计说明</h2><h3 id="1-map方法"><a href="#1-map方法" class="headerlink" title="1.map方法"></a>1.map方法</h3><p><code>map( )</code>函数使用自定义的FileNameRecordReader，将词组、url和日期以<code>#</code>作为分隔符，并将<code>词组#url#日期</code>整体作为key，频次作为value输出键值对。<br>相关代码:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">protected void map(Text key, Text value, Context context)</span><br><span class="line">                throws IOException, InterruptedException &#123;</span><br><span class="line">            // map()函数这里使用自定义的FileNameRecordReader</span><br><span class="line">            String line = value.toString().toLowerCase();</span><br><span class="line">            StringTokenizer itr = new StringTokenizer(line,&quot;\n&quot;);</span><br><span class="line">            for (; itr.hasMoreTokens();) &#123;</span><br><span class="line">                String[] itr1 = itr.nextToken().split(&quot; &quot;);</span><br><span class="line">                int l = itr1.length;</span><br><span class="line">                for(int i = 0;i&lt;l-1;i++)&#123;</span><br><span class="line">                    Text word = new Text();</span><br><span class="line">                    word.set(itr1[i]+&quot;#&quot; +itr1[l-1]+&quot; #&quot;+itr1[l-2]);   //词组#url#日期</span><br><span class="line">                    context.write(word, new IntWritable(1));</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-Combiner类"><a href="#2-Combiner类" class="headerlink" title="2.Combiner类"></a>2.Combiner类</h3><p>Hadoop用过在Mapper类结束后、传入Reduce节点之前用一个Combiner类来解决相同主键键值对的合并处理。Combiner类主要作用是为了合并和减少Mapper的输出从而减少Reduce节点的负载。</p>
+<p>本程序使用Combiner将Mapper的输出结果中value部分的词频进行统计。<br>相关代码片段:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">int sum = 0;</span><br><span class="line">for (IntWritable val : values)</span><br><span class="line">    sum += val.get();</span><br><span class="line">result.set(sum);</span><br><span class="line">context.write(key, result);</span><br></pre></td></tr></table></figure>
+<h3 id="3-Partitioner类"><a href="#3-Partitioner类" class="headerlink" title="3.Partitioner类"></a>3.Partitioner类</h3><p>由于一个Reduce节点所处理的数据可能会来自多个Map节点，因此为了避免在Reduce计算过程中不同Reduce节点间存在数据相关性，需要一个Partitioner的过程。Partitioner用来控制Map输出的中间结果键值对的划分，分区总数与作业的Reduce任务的数量一致。</p>
+<p>本程序自定义一个HashPartitioner类，先继承Partitioner类，并重载getPartition( )方法。 getPartition( )方法返回一个0到Reducer数目之间的整型值来确定将<code>&lt;key,value&gt;</code>送到哪一个Reducer中，它的参数除了key和value之外还有一个numReduceTasks表示总的划分的个数。</p>
+<p>HashPartitioner把组合的主键临时拆开，使得Partitioner将传入的key按照<code>#</code>进行分割出词组，只按照词组进行分区选择正确的Reduce节点，这样可保证同一个词组下的键值对一定被分到同一个Reduce节点。</p>
+<p>相关代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">public static class NewPartitioner extends HashPartitioner&lt;Text, IntWritable&gt; &#123;</span><br><span class="line">        public int getPartition(Text key, IntWritable value, int numReduceTasks) &#123;</span><br><span class="line">            String term = key.toString().split(&quot;#&quot;)[0]; // &lt;term#docid&gt; =&gt; term</span><br><span class="line">            return super.getPartition(new Text(term), value, numReduceTasks);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="4-Reducer类"><a href="#4-Reducer类" class="headerlink" title="4.Reducer类"></a>4.Reducer类</h3><p>Reduce( )方法主要实现以下功能：</p>
+<ul>
+<li>将key按照<code>#</code>进行分割</li>
+<li>交换原key中url和日期的顺序</li>
+<li>针对每个词组输出对应的多个url和日期</li>
+<li>对词组出现的次数进行计数</li>
+<li>筛选一定频次的词组并输出</li>
+</ul>
+<h2 id="程序运行和实验结果说明和分析"><a href="#程序运行和实验结果说明和分析" class="headerlink" title="程序运行和实验结果说明和分析"></a>程序运行和实验结果说明和分析</h2><h3 id="程序运行说明"><a href="#程序运行说明" class="headerlink" title="程序运行说明"></a>程序运行说明</h3><p>本程序对需求做了进一步改进，能够具体索引一个频次段的词组的url，共设置4个参数，分别为 <code>&lt;文件输入路径&gt;</code>  <code>&lt;输出结果路径&gt;</code>  <code>&lt;频次下限&gt;</code>  <code>&lt;频次上限&gt;</code><br>此处<code>&lt;files input path&gt;</code>是指新闻标题分词后带有url和日期的文件，形式如下：<br><img src="/hadoop-url/2.jpg"><br>需要注意的一点是由于hdfs文件路径的限制，数据集的路径直接在程序中给出而非作为参数给出：<br></p>
+<h3 id="实验结果截图"><a href="#实验结果截图" class="headerlink" title="实验结果截图"></a>实验结果截图</h3><p>由于输出html太多不方便查看结果，取频次15~29次词组运行本程序<br>输入参数：<br><img src="/hadoop-url/4.jpg"><br><img src="/hadoop-url/5.jpg"><br><img src="/hadoop-url/6.jpg"></p>
+<h2 id="创新点"><a href="#创新点" class="headerlink" title="创新点"></a>创新点</h2><ul>
+<li>为了使数据更有意义，在新闻标题url输出的同时同步输出对应日期</li>
+<li>为了方便查看，每个词组对应的url按照日期从旧到新的顺序输出<img src="/hadoop-url/7.jpg">
+</li>
+</ul>
+<h2 id="可改进之处"><a href="#可改进之处" class="headerlink" title="可改进之处"></a>可改进之处</h2><ul>
+<li>可把词组检索结果按照日期降序输出，即时间上由新到旧的顺序</li>
+<li>当词组出现的次数太大时，可设置一种排序机制只输出排序前50个url</li>
+</ul>
+<hr>
+<p>相关文章：<br><a href="">基于Hadoop的股票新闻标题词频统计</a></p>
 
 
         <!--文章底部内容-->
@@ -444,7 +455,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/shell/" rel="tag"># shell</a>
+            <a href="/tags/hadoop/" rel="tag"># hadoop</a>
           
         </div>
       
@@ -457,8 +468,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/oh-my-zsh.html" rel="next" title="终端shell美化：oh-my-zsh配置">
-                <i class="fa fa-chevron-left"></i> 终端shell美化：oh-my-zsh配置
+              <a href="/wordcount.html" rel="next" title="基于Hadoop的股票新闻标题词频统计">
+                <i class="fa fa-chevron-left"></i> 基于Hadoop的股票新闻标题词频统计
               </a>
             
           </div>
@@ -466,6 +477,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/hive.html" rel="prev" title="mac下Hive+MySql环境配置">
+                mac下Hive+MySql环境配置 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -668,7 +683,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#插件介绍"><span class="nav-number">1.</span> <span class="nav-text">插件介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#zsh-syntax-highlighting"><span class="nav-number">1.1.</span> <span class="nav-text">zsh-syntax-highlighting</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#zsh-autosuggestions"><span class="nav-number">1.2.</span> <span class="nav-text">zsh-autosuggestions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#web-search"><span class="nav-number">1.3.</span> <span class="nav-text">web-search</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#sublime"><span class="nav-number">1.4.</span> <span class="nav-text">sublime</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#z-autojump"><span class="nav-number">1.5.</span> <span class="nav-text">z / autojump</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#d"><span class="nav-number">1.6.</span> <span class="nav-text">d</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#history"><span class="nav-number">1.7.</span> <span class="nav-text">history</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#osx"><span class="nav-number">1.8.</span> <span class="nav-text">osx</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#需求"><span class="nav-number">1.</span> <span class="nav-text">需求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主要设计思路"><span class="nav-number">2.</span> <span class="nav-text">主要设计思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算法设计"><span class="nav-number">3.</span> <span class="nav-text">算法设计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#程序和各个类的设计说明"><span class="nav-number">4.</span> <span class="nav-text">程序和各个类的设计说明</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-map方法"><span class="nav-number">4.1.</span> <span class="nav-text">1.map方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Combiner类"><span class="nav-number">4.2.</span> <span class="nav-text">2.Combiner类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Partitioner类"><span class="nav-number">4.3.</span> <span class="nav-text">3.Partitioner类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-Reducer类"><span class="nav-number">4.4.</span> <span class="nav-text">4.Reducer类</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#程序运行和实验结果说明和分析"><span class="nav-number">5.</span> <span class="nav-text">程序运行和实验结果说明和分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#程序运行说明"><span class="nav-number">5.1.</span> <span class="nav-text">程序运行说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实验结果截图"><span class="nav-number">5.2.</span> <span class="nav-text">实验结果截图</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创新点"><span class="nav-number">6.</span> <span class="nav-text">创新点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#可改进之处"><span class="nav-number">7.</span> <span class="nav-text">可改进之处</span></a></li></ol></div>
             
 
           </div>

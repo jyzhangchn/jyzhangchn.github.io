@@ -443,6 +443,433 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://jyzhangchn.github.io/hadoop-url.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jennifer Zhang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/gavin.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jennifer's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/hadoop-url.html" itemprop="url">基于Hadoop的文档倒排索引</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-14T10:35:34+08:00">
+                2017-11-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/hadoop-url.html" class="leancloud_visitors" data-flag-title="基于Hadoop的文档倒排索引">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,454 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  6 min
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><p>针对股票新闻数据集，以新闻标题中的词组为key，编写带URL属性的文档倒排索引程序，将结果输出到指定文件。</p>
+<h2 id="主要设计思路"><a href="#主要设计思路" class="headerlink" title="主要设计思路"></a>主要设计思路</h2><p>可将需求具体拆解成如下步骤：</p>
+<ol>
+<li>在WordCount.java中获取股票新闻标题分词+url</li>
+<li>在InvertedIndexer.java中输出词组+url</li>
+</ol>
+<p>文件流设计如下：<br><img src="/hadoop-url/1.jpg"></p>
+<p>考虑到本数据集数据较大，一个词组会输出上万个url的情况，为了更加方便直观的查看词组对应的每个url，故将日期也同步以升序输出。</p>
+<h2 id="算法设计"><a href="#算法设计" class="headerlink" title="算法设计"></a>算法设计</h2><p>需求本质是文档倒排索引，与传统的文档倒排索引不同的地方在于本程序并非以文档名称为索引，而是以新闻标题对应的url为索引，另外为了更加直观，本程序还对应输出了每个url对应的日期。</p>
+<p>一个倒排作引由大量的posting列表组成，每一个posting列表和一个词组相关联，每个posting表示对应词组在一个文档的payload信息，包括URL、词频和新闻日期。</p>
+<p>Mapper将 <code>&lt;词组#url#日期，词频</code>&gt; 作为输出的<code>\&lt;key,value&gt;</code>对，然后使用Combiner将Mapper的输出结果中value部分的词频进行统计；接着自定义 <code>HashPartitioner</code>，把组合的主键临时拆开，使得Partitioner单纯按照词组进行分区选择正确的Reduce节点，即将传入的key按照<code>#</code>进行分割出词组，使得 <code>&lt;词组#url#日期，词频&gt;</code>格式的key值只按照词组分发给Reducer，这样可保证同一个词组下的键值对一定被分到同一个Reduce节点。</p>
+<p>Reducer从Partitioner得到键值对后，key值被进一步分割为词组、url和日期，由于Reduce自动按照key值升序排序，为了实现按照日期升序排序，故将url和日期的位置进行调换，即变成<code>日期 url</code>的形式，便可自动升序排序。</p>
+<h2 id="程序和各个类的设计说明"><a href="#程序和各个类的设计说明" class="headerlink" title="程序和各个类的设计说明"></a>程序和各个类的设计说明</h2><h3 id="1-map方法"><a href="#1-map方法" class="headerlink" title="1.map方法"></a>1.map方法</h3><p><code>map( )</code>函数使用自定义的FileNameRecordReader，将词组、url和日期以<code>#</code>作为分隔符，并将<code>词组#url#日期</code>整体作为key，频次作为value输出键值对。<br>相关代码:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">protected void map(Text key, Text value, Context context)</span><br><span class="line">                throws IOException, InterruptedException &#123;</span><br><span class="line">            // map()函数这里使用自定义的FileNameRecordReader</span><br><span class="line">            String line = value.toString().toLowerCase();</span><br><span class="line">            StringTokenizer itr = new StringTokenizer(line,&quot;\n&quot;);</span><br><span class="line">            for (; itr.hasMoreTokens();) &#123;</span><br><span class="line">                String[] itr1 = itr.nextToken().split(&quot; &quot;);</span><br><span class="line">                int l = itr1.length;</span><br><span class="line">                for(int i = 0;i&lt;l-1;i++)&#123;</span><br><span class="line">                    Text word = new Text();</span><br><span class="line">                    word.set(itr1[i]+&quot;#&quot; +itr1[l-1]+&quot; #&quot;+itr1[l-2]);   //词组#url#日期</span><br><span class="line">                    context.write(word, new IntWritable(1));</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-Combiner类"><a href="#2-Combiner类" class="headerlink" title="2.Combiner类"></a>2.Combiner类</h3><p>Hadoop用过在Mapper类结束后、传入Reduce节点之前用一个Combiner类来解决相同主键键值对的合并处理。Combiner类主要作用是为了合并和减少Mapper的输出从而减少Reduce节点的负载。</p>
+<p>本程序使用Combiner将Mapper的输出结果中value部分的词频进行统计。<br>相关代码片段:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">int sum = 0;</span><br><span class="line">for (IntWritable val : values)</span><br><span class="line">    sum += val.get();</span><br><span class="line">result.set(sum);</span><br><span class="line">context.write(key, result);</span><br></pre></td></tr></table></figure>
+<h3 id="3-Partitioner类"><a href="#3-Partitioner类" class="headerlink" title="3.Partitioner类"></a>3.Partitioner类</h3><p>由于一个Reduce节点所处理的数据可能会来自多个Map节点，因此为了避免在Reduce计算过程中不同Reduce节点间存在数据相关性，需要一个Partitioner的过程。Partitioner用来控制Map输出的中间结果键值对的划分，分区总数与作业的Reduce任务的数量一致。</p>
+<p>本程序自定义一个HashPartitioner类，先继承Partitioner类，并重载getPartition( )方法。 getPartition( )方法返回一个0到Reducer数目之间的整型值来确定将<code>&lt;key,value&gt;</code>送到哪一个Reducer中，它的参数除了key和value之外还有一个numReduceTasks表示总的划分的个数。</p>
+<p>HashPartitioner把组合的主键临时拆开，使得Partitioner将传入的key按照<code>#</code>进行分割出词组，只按照词组进行分区选择正确的Reduce节点，这样可保证同一个词组下的键值对一定被分到同一个Reduce节点。</p>
+<p>相关代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">public static class NewPartitioner extends HashPartitioner&lt;Text, IntWritable&gt; &#123;</span><br><span class="line">        public int getPartition(Text key, IntWritable value, int numReduceTasks) &#123;</span><br><span class="line">            String term = key.toString().split(&quot;#&quot;)[0]; // &lt;term#docid&gt; =&gt; term</span><br><span class="line">            return super.getPartition(new Text(term), value, numReduceTasks);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="4-Reducer类"><a href="#4-Reducer类" class="headerlink" title="4.Reducer类"></a>4.Reducer类</h3><p>Reduce( )方法主要实现以下功能：</p>
+<ul>
+<li>将key按照<code>#</code>进行分割</li>
+<li>交换原key中url和日期的顺序</li>
+<li>针对每个词组输出对应的多个url和日期</li>
+<li>对词组出现的次数进行计数</li>
+<li>筛选一定频次的词组并输出</li>
+</ul>
+<h2 id="程序运行和实验结果说明和分析"><a href="#程序运行和实验结果说明和分析" class="headerlink" title="程序运行和实验结果说明和分析"></a>程序运行和实验结果说明和分析</h2><h3 id="程序运行说明"><a href="#程序运行说明" class="headerlink" title="程序运行说明"></a>程序运行说明</h3><p>本程序对需求做了进一步改进，能够具体索引一个频次段的词组的url，共设置4个参数，分别为 <code>&lt;文件输入路径&gt;</code>  <code>&lt;输出结果路径&gt;</code>  <code>&lt;频次下限&gt;</code>  <code>&lt;频次上限&gt;</code><br>此处<code>&lt;files input path&gt;</code>是指新闻标题分词后带有url和日期的文件，形式如下：<br><img src="/hadoop-url/2.jpg"><br>需要注意的一点是由于hdfs文件路径的限制，数据集的路径直接在程序中给出而非作为参数给出：<br></p>
+<h3 id="实验结果截图"><a href="#实验结果截图" class="headerlink" title="实验结果截图"></a>实验结果截图</h3><p>由于输出html太多不方便查看结果，取频次15~29次词组运行本程序<br>输入参数：<br><img src="/hadoop-url/4.jpg"><br><img src="/hadoop-url/5.jpg"><br><img src="/hadoop-url/6.jpg"></p>
+<h2 id="创新点"><a href="#创新点" class="headerlink" title="创新点"></a>创新点</h2><ul>
+<li>为了使数据更有意义，在新闻标题url输出的同时同步输出对应日期</li>
+<li>为了方便查看，每个词组对应的url按照日期从旧到新的顺序输出<img src="/hadoop-url/7.jpg">
+</li>
+</ul>
+<h2 id="可改进之处"><a href="#可改进之处" class="headerlink" title="可改进之处"></a>可改进之处</h2><ul>
+<li>可把词组检索结果按照日期降序输出，即时间上由新到旧的顺序</li>
+<li>当词组出现的次数太大时，可设置一种排序机制只输出排序前50个url</li>
+</ul>
+<hr>
+<p>相关文章：<br><a href="">基于Hadoop的股票新闻标题词频统计</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://jyzhangchn.github.io/wordcount.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jennifer Zhang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/gavin.JPG">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jennifer's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/wordcount.html" itemprop="url">基于Hadoop的股票新闻标题词频统计</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-12T10:30:50+08:00">
+                2017-11-12
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/wordcount.html" class="leancloud_visitors" data-flag-title="基于Hadoop的股票新闻标题词频统计">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,799 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  7 min
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h2><p>针对股票新闻数据集中的新闻标题，编写WordCount程序，统计所有除Stop-word（如“的”，“得”，“在”等）出现次数k次以上的单词计数，最后的结果按照词频从高到低排序输出。</p>
+<h2 id="主要设计思路"><a href="#主要设计思路" class="headerlink" title="主要设计思路"></a>主要设计思路</h2><p>可将需求具体拆解成如下几个步骤：</p>
+<ol>
+<li>批量读取文件提取新闻标题</li>
+<li>将新闻标题分词</li>
+<li>对分词后的结果进行词频统计</li>
+<li>根据词频降序输出</li>
+</ol>
+<p>文件流设计如下:<br><img src="/wordcount/1.jpg"></p>
+<h2 id="算法设计"><a href="#算法设计" class="headerlink" title="算法设计"></a>算法设计</h2><p>需求对于传统WordCount的改进是<strong>分词</strong>和<strong>降序输出</strong>，其中核心部分是<strong>降序输出</strong>。</p>
+<p>用一个并行计算任务无法同时完成单词词频统计和排序的，可以利用 Hadoop 的任务管道能力，用上一个任务<code>(词频统计)</code>的输出做为下一个任务<code>(排序)</code>的输入，顺序执行两个并行计算任务。</p>
+<p>MapReduce 会把中间结果根据 key 排序并按 key 切成n份交给n个 Reduce 函数，Reduce 函数在处理中间结果之前也会有一个按 key 进行升序排序的过程，故 MapReduce 输出的最终结果实际上已经按 key 排好序。</p>
+<p>传统的WordCount输出是将 <code>&lt;词组，频次&gt;</code> 作为 <code>&lt;key,value&gt;</code> 对，然后MapReduce默认根据 <code>key</code> 值升序输出，为了实现按词频<strong>降序</strong>排序，这里使用hadoop内置InverseMapper 类作为排序任务的 Mapper 类 <code>sortjob.setMapperClass(InverseMapper.class)</code> ，这个类的 map 函数将输入的 key 和 value 互换后作为中间结果输出，即将词频作为 key, 单词作为 value 输出, 然后得到按照词频升序排序的结果。</p>
+<p>接下来需要解决将升序改为降序的问题。</p>
+<p>此处可以利用hadoop内置比较类<code>Class WritableComparator</code>实现一个降序排序函数，官方API截图如下：</p>
+<img src="/wordcount/2.jpg">
+<h2 id="程序和各个类的设计说明"><a href="#程序和各个类的设计说明" class="headerlink" title="程序和各个类的设计说明"></a>程序和各个类的设计说明</h2><h3 id="1-批量读取文件"><a href="#1-批量读取文件" class="headerlink" title="1.批量读取文件"></a>1.批量读取文件</h3><p>本程序所用数据集：</p>
+<blockquote>
+<p>某门户网站财经板块股票新闻数据集：download_data.zip<br>   1.1 内容：收集沪市和深市若干支股票在某时间段内的若干条财经新闻标题<br>    1.2 格式：文件名：股票代号+股票名.txt；文件内容：股票代码+时间+新闻标题+网页URL（以空格分隔）</p>
+</blockquote>
+<p>首先用hadoop遍历文件夹的内置方法<code>iteratorPath</code>遍历给定数据集并对每个txt文件进行操作分词操作并输出两个文件：</p>
+<ul>
+<li>用于作为下一步输入的 <code>segment.txt</code>（标题）</li>
+<li>用于需求2文档倒排的<code>titles.txt</code>（标题+url+日期）</li>
+</ul>
+<h3 id="2-分词"><a href="#2-分词" class="headerlink" title="2.分词"></a>2.分词</h3><p><a href="https://github.com/ysc/word" target="_blank" rel="noopener">Java分布式中文分词组件</a></p>
+<blockquote>
+<p>Java分布式中文分词组件 - word分词<br>word分词是一个Java实现的分布式的中文分词组件，提供了多种基于词典的分词算法，并利用ngram模型来消除歧义。能准确识别英文、数字，以及日期、时间等数量词，能识别人名、地名、组织机构名等未登录词。能通过自定义配置文件来改变组件行为，能自定义用户词库、自动检测词库变化、支持大规模分布式环境，能灵活指定多种分词算法，能使用refine功能灵活控制分词结果，还能使用词频统计、词性标注、同义标注、反义标注、拼音标注等功能。提供了10种分词算法，还提供了10种文本相似度算法，同时还无缝和Lucene、Solr、ElasticSearch、Luke集成。注意：word1.3需要JDK1.8</p>
+</blockquote>
+<p>下载API然后在project中引入jar包即可直接在程序中使用</p>
+<p>为了避免多余的文件操作，本程序在提取新闻标题后写入txt文件前进行分词操作，可以输出分词结果。即先分词后输出。<br>相关代码如下：</p>
+<img src="/wordcount/3.jpg">
+<h3 id="3-词频统计WordCount"><a href="#3-词频统计WordCount" class="headerlink" title="3.词频统计WordCount"></a>3.词频统计WordCount</h3><h4 id="mapper类"><a href="#mapper类" class="headerlink" title="mapper类"></a>mapper类</h4><p>这个类实现 Mapper 接口中的 map 方法，输入参数中的 value 是文本文件中的一行，利用 <code>StringTokenizer</code> 将这个字符串拆成单词，然后将输出结果 &lt;词组,1&gt; 写入到 <code>org.apache.hadoop.io.Text</code> 中。<br>相关代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">public void map(Object key, Text value, Context context)</span><br><span class="line">                 throws IOException, InterruptedException &#123;</span><br><span class="line">            StringTokenizer itr = new StringTokenizer(value.toString(),&quot; ,.\&quot;:\t\n&quot;);</span><br><span class="line">            while (itr.hasMoreTokens()) &#123;</span><br><span class="line">                word.set(itr.nextToken().toLowerCase());</span><br><span class="line">                context.write(word, one);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+<h4 id="reducer类"><a href="#reducer类" class="headerlink" title="reducer类"></a>reducer类</h4><p>这个类实现 Reducer 接口中的 reduce 方法, 输入参数中的 key, values 是由 Map 任务输出的中间结果，values 是一个 Iterator, 遍历这个 Iterator, 就可以得到属于同一个 key 的所有 value。在本程序中key 是一个单词，value 是词频。只需要将所有的 value 相加，就可以得到这个单词的总的出现次数。<br>相关代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public void reduce(Text key, Iterable&lt;IntWritable&gt; values, Context context)</span><br><span class="line">                throws IOException, InterruptedException &#123;</span><br><span class="line">            int sum = 0;</span><br><span class="line">            for (IntWritable val : values) </span><br><span class="line">                sum += val.get();</span><br><span class="line">            result.set(sum);</span><br><span class="line">            if(sum &gt;= min_frequency &amp;&amp; sum &lt;= max_frequency )  </span><br><span class="line">                context.write(key, result);</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="4-根据词频降序"><a href="#4-根据词频降序" class="headerlink" title="4.根据词频降序"></a>4.根据词频降序</h3><p>用hadoop内置类<code>IntWritable.Comparator</code>实现一个函数<code>IntWritableDecreasingComparator</code> 对key进行比较并降序输出<br>相关代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">private static class IntWritableDecreasingComparator extends IntWritable.Comparator &#123;</span><br><span class="line">        //hadoop内置比较类</span><br><span class="line">        public int compare(WritableComparable a, WritableComparable b) &#123;</span><br><span class="line">            return -super.compare(a, b);</span><br><span class="line">        &#125;</span><br><span class="line">        public int compare(byte[] b1, int s1, int l1, byte[] b2, int s2, int l2) &#123;</span><br><span class="line">            return -super.compare(b1, s1, l1, b2, s2, l2);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="程序运行和实验结果说明和分析"><a href="#程序运行和实验结果说明和分析" class="headerlink" title="程序运行和实验结果说明和分析"></a>程序运行和实验结果说明和分析</h2><h3 id="程序运行说明"><a href="#程序运行说明" class="headerlink" title="程序运行说明"></a>程序运行说明</h3><p><code>wordcount.java</code> 需求是将大于k次以上的词组以降序输出，本程序对需求做了进一步改进，能够具体输出一个频次段的词组，共设置4个参数，分别为 <code>&lt;文件输入路径&gt;</code>  <code>&lt;输出结果路径&gt;</code>  <code>&lt;频次下限&gt;</code>  <code>&lt;频次上限&gt;</code><br>此处<code>&lt;files input path&gt;</code>是指WordCount的输入路径，即分词的输出文件，此处只需提供一个空文件夹即可</p>
+<h3 id="实验结果截图"><a href="#实验结果截图" class="headerlink" title="实验结果截图"></a>实验结果截图</h3><p>以输出频次在4500~6500的词组为例运行程序：<br>输入参数:<br><img src="/wordcount/4.jpg"><br>运行结果：<br><img src="/wordcount/5.jpg"></p>
+<h2 id="创新点"><a href="#创新点" class="headerlink" title="创新点"></a>创新点</h2><p>本次需求是将股票新闻标题中出现k次以上的单词按照词频降序输出，由于考虑到频次太低和频次太高的词组对股票数据分析无太大意义，故本人将程序进一步优化，使得能够输出a~b之间的一段词频而非只是k次以上的词组。</p>
+<table>
+<thead>
+<tr>
+<th>频次最高的部分词组</th>
+<th>频次最低的部分词组</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><div><img src="/wordcount/6.jpg"></div></td>
+<td><img src="/wordcount/7.jpg"></td>
+</tr>
+</tbody>
+</table>
+<h2 id="存在的不足和可能的改进之处"><a href="#存在的不足和可能的改进之处" class="headerlink" title="存在的不足和可能的改进之处"></a>存在的不足和可能的改进之处</h2><ul>
+<li>word分词器由于分词精确度较高、功能较为复杂的原因而运行时较慢，可用的解决方案是在对除了分词之外的其他功能无要求、分词难度不大的情况下可以考虑用其他可替代的轻量中文分词器</li>
+<li>目前由于分词器的问题，仍会出现 一些奇奇怪怪的问题比如最终结果有一部分只输出标题不输出url等，解决方案是换个分词器……</li>
+<li>可改进之处：把数据集的路径作为参数输入而非在程序中固定</li>
+</ul>
+<hr>
+<p>相关文章：<br><a href="">基于Hadoop的文档倒排索引</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://jyzhangchn.github.io/wordpress-plus.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -762,349 +1189,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://jyzhangchn.github.io/markdown-intro.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jennifer Zhang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/gavin.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jennifer's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/markdown-intro.html" itemprop="url">markdown编辑器测评</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-09T20:40:44+08:00">
-                2017-10-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/markdown-intro.html" class="leancloud_visitors" data-flag-title="markdown编辑器测评">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  671 字
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  2 min
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p>markdown可以看作是一个快速排版的工具，可以让你在码字的同时无需额外点击其他按钮而实现的自动排版，你无需考虑字号字体颜色加粗等各种琐事，只需要敲入特定符号即可，而且没有那些乱七八糟的windows拼写检查的波浪线！！</p>
-</blockquote>
-<p>下面是一些适用场合|局限性|各平台markdown编辑器测评</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/markdown-intro.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://jyzhangchn.github.io/mac-hadoop.html">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jennifer Zhang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/gavin.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Jennifer's Blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/mac-hadoop.html" itemprop="url">mac下Hadoop环境配置</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-24T13:34:57+08:00">
-                2017-09-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/mac-hadoop.html" class="leancloud_visitors" data-flag-title="mac下Hadoop环境配置">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  1,426 字
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  6 min
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p>Hadoop是一个由Apache基金会所开发的分布式系统基础架构。<br>用户可以在不了解分布式底层细节的情况下，开发分布式程序。充分利用集群的威力进行高速运算和存储。Hadoop的框架最核心的设计就是：HDFS和MapReduce。HDFS为海量的数据提供了存储，则MapReduce为海量的数据提供了计算。</p>
-</blockquote>
-<p>下面是mac OSx系统下Hadoop的安装、配置、运行示例和可视化查看。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/mac-hadoop.html#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1154,7 +1243,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1167,7 +1256,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
