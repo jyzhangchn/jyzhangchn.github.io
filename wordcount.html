@@ -96,7 +96,7 @@
 <meta property="og:image" content="https://jyzhangchn.github.io/wordcount/5.jpg">
 <meta property="og:image" content="https://jyzhangchn.github.io/wordcount/6.jpg">
 <meta property="og:image" content="https://jyzhangchn.github.io/wordcount/7.jpg">
-<meta property="og:updated_time" content="2018-04-14T07:12:39.050Z">
+<meta property="og:updated_time" content="2018-04-14T07:45:11.320Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基于Hadoop的股票新闻标题词频统计">
 <meta name="twitter:description" content="需求针对股票新闻数据集中的新闻标题，编写WordCount程序，统计所有除Stop-word（如“的”，“得”，“在”等）出现次数k次以上的单词计数，最后的结果按照词频从高到低排序输出。 主要设计思路可将需求具体拆解成如下几个步骤：  批量读取文件提取新闻标题 将新闻标题分词 对分词后的结果进行词频统计 根据词频降序输出  文件流设计如下: 算法设计需求对于传统WordCount的改进是分词和降序">
@@ -377,7 +377,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,811 字
+                  1,817 字
                 </span>
               
 
@@ -474,6 +474,7 @@
 <li>目前由于分词器的问题，仍会出现 一些奇奇怪怪的问题比如最终结果有一部分只输出标题不输出url等，解决方案是换个分词器……</li>
 <li>可改进之处：把数据集的路径作为参数输入而非在程序中固定</li>
 </ul>
+<p><a href="https://github.com/jyzhangchn/FBDP/tree/master/project1/source%20code" target="_blank" rel="noopener">项目完整源码</a></p>
 <hr>
 <p>相关文章：<br><a href="http://jyzhangchn.com/hadoop-url.html" target="_blank" rel="noopener">基于Hadoop的文档倒排索引</a><br><a href="http://jyzhangchn.com/hadoop-sentiment.html" target="_blank" rel="noopener">上市公司财经新闻情感分析</a></p>
 
