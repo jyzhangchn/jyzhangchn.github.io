@@ -4,6 +4,42 @@
 
     
   <url>
+    <loc>http://jyzhangchn.coding.me/mac-hadoop.html</loc>
+    <lastmod>2018-04-14T07:06:16.579Z</lastmod>
+    <data>
+        <display>
+        <title>mac下Hadoop环境配置</title>
+        <pubTime>2017-09-24T05:34:57.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="大数据" url="http://jyzhangchn.coding.me/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jyzhangchn.coding.me/hive.html</loc>
+    <lastmod>2018-04-14T07:05:41.900Z</lastmod>
+    <data>
+        <display>
+        <title>mac下Hive+MySql环境配置</title>
+        <pubTime>2017-12-07T15:51:15.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="大数据" url="http://jyzhangchn.coding.me/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://jyzhangchn.coding.me/hadoop-sentiment.html</loc>
     <lastmod>2018-04-14T07:03:38.921Z</lastmod>
     <data>
@@ -58,40 +94,6 @@
              
               <breadCrumb title="大数据" url="http://jyzhangchn.coding.me/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://jyzhangchn.coding.me/hive.html</loc>
-    <lastmod>2018-04-14T03:37:57.398Z</lastmod>
-    <data>
-        <display>
-        <title>mac下Hive+MySql环境配置</title>
-        <pubTime>2017-12-07T15:51:15.000Z</pubTime>
-        
-        <tag>Big Data</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://jyzhangchn.coding.me/mac-hadoop.html</loc>
-    <lastmod>2018-04-14T03:37:09.155Z</lastmod>
-    <data>
-        <display>
-        <title>mac下Hadoop环境配置</title>
-        <pubTime>2017-09-24T05:34:57.000Z</pubTime>
-        
-        <tag>Big Data</tag>
-         
-         
-           
         </display>
     </data>
     </url>
