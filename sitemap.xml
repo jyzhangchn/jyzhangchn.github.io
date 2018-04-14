@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://jyzhangchn.github.io/about/index.html</loc>
+    
+    <lastmod>2018-04-14T07:36:12.600Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://jyzhangchn.github.io/wordcount.html</loc>
     
     <lastmod>2018-04-14T07:12:39.050Z</lastmod>
@@ -68,13 +75,6 @@
     <loc>https://jyzhangchn.github.io/worpress.html</loc>
     
     <lastmod>2018-04-14T03:26:24.031Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://jyzhangchn.github.io/about/index.html</loc>
-    
-    <lastmod>2018-03-18T11:02:20.647Z</lastmod>
     
   </url>
   
