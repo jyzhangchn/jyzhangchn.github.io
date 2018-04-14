@@ -4,8 +4,127 @@
 
     
   <url>
+    <loc>http://jyzhangchn.coding.me/hive.html</loc>
+    <lastmod>2018-04-14T03:37:57.398Z</lastmod>
+    <data>
+        <display>
+        <title>mac下Hive+MySql环境配置</title>
+        <pubTime>2017-12-07T15:51:15.000Z</pubTime>
+        
+        <tag>Big Data</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jyzhangchn.coding.me/mac-hadoop.html</loc>
+    <lastmod>2018-04-14T03:37:09.155Z</lastmod>
+    <data>
+        <display>
+        <title>mac下Hadoop环境配置</title>
+        <pubTime>2017-09-24T05:34:57.000Z</pubTime>
+        
+        <tag>Big Data</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jyzhangchn.coding.me/markdown-ppt.html</loc>
+    <lastmod>2018-04-14T03:33:33.755Z</lastmod>
+    <data>
+        <display>
+        <title>用markdown做ppt</title>
+        <pubTime>2017-12-18T08:56:31.000Z</pubTime>
+        
+        <tag>markdown</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jyzhangchn.coding.me/oh-my-zsh-diy.html</loc>
+    <lastmod>2018-04-14T03:31:56.708Z</lastmod>
+    <data>
+        <display>
+        <title>oh-my-zsh 插件介绍</title>
+        <pubTime>2017-12-23T15:09:40.000Z</pubTime>
+        
+        <tag>shell</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jyzhangchn.coding.me/oh-my-zsh.html</loc>
+    <lastmod>2018-04-14T03:30:32.865Z</lastmod>
+    <data>
+        <display>
+        <title>终端shell美化：oh-my-zsh配置</title>
+        <pubTime>2017-12-22T14:50:38.000Z</pubTime>
+        
+        <tag>shell</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jyzhangchn.coding.me/bash2zsh.html</loc>
+    <lastmod>2018-04-14T03:28:52.771Z</lastmod>
+    <data>
+        <display>
+        <title>mac OS/Linux/Unix下bash切换oh-my-zsh</title>
+        <pubTime>2017-12-21T02:45:25.000Z</pubTime>
+        
+        <tag>shell</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://jyzhangchn.coding.me/worpress.html</loc>
+    <lastmod>2018-04-14T03:26:24.031Z</lastmod>
+    <data>
+        <display>
+        <title>从0开始搭建个人网站+wordpress</title>
+        <pubTime>2017-10-11T11:45:57.000Z</pubTime>
+        
+        <tag>wordpress</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://jyzhangchn.coding.me/hadoop-url.html</loc>
-    <lastmod>2018-04-14T03:02:13.584Z</lastmod>
+    <lastmod>2018-04-14T03:12:59.036Z</lastmod>
     <data>
         <display>
         <title>基于Hadoop的文档倒排索引</title>
@@ -22,30 +141,13 @@
     
   <url>
     <loc>http://jyzhangchn.coding.me/wordcount.html</loc>
-    <lastmod>2018-04-14T03:01:49.557Z</lastmod>
+    <lastmod>2018-04-14T03:12:02.688Z</lastmod>
     <data>
         <display>
         <title>基于Hadoop的股票新闻标题词频统计</title>
         <pubTime>2017-11-12T02:30:50.000Z</pubTime>
         
         <tag>hadoop</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://jyzhangchn.coding.me/worpress.html</loc>
-    <lastmod>2018-03-19T06:17:31.052Z</lastmod>
-    <data>
-        <display>
-        <title>从0开始搭建个人网站+wordpress</title>
-        <pubTime>2017-10-11T11:45:57.000Z</pubTime>
-        
-        <tag>wordpress</tag>
          
          
            
@@ -63,108 +165,6 @@
         <title>2017美赛M奖经验分享</title>
         <pubTime>2017-12-09T09:52:43.000Z</pubTime>
         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://jyzhangchn.coding.me/bash2zsh.html</loc>
-    <lastmod>2018-03-17T15:50:06.139Z</lastmod>
-    <data>
-        <display>
-        <title>mac OS/Linux/Unix下bash切换oh-my-zsh</title>
-        <pubTime>2017-12-21T02:45:25.000Z</pubTime>
-        
-        <tag>shell</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://jyzhangchn.coding.me/oh-my-zsh.html</loc>
-    <lastmod>2018-03-17T15:49:55.322Z</lastmod>
-    <data>
-        <display>
-        <title>终端shell美化：oh-my-zsh配置</title>
-        <pubTime>2017-12-22T14:50:38.000Z</pubTime>
-        
-        <tag>shell</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://jyzhangchn.coding.me/oh-my-zsh-diy.html</loc>
-    <lastmod>2018-03-17T15:49:13.161Z</lastmod>
-    <data>
-        <display>
-        <title>oh-my-zsh 插件介绍</title>
-        <pubTime>2017-12-23T15:09:40.000Z</pubTime>
-        
-        <tag>shell</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://jyzhangchn.coding.me/markdown-ppt.html</loc>
-    <lastmod>2018-03-17T12:56:59.667Z</lastmod>
-    <data>
-        <display>
-        <title>用markdown做ppt</title>
-        <pubTime>2017-12-18T08:56:31.000Z</pubTime>
-        
-        <tag>markdown</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://jyzhangchn.coding.me/mac-hadoop.html</loc>
-    <lastmod>2018-03-17T12:39:38.701Z</lastmod>
-    <data>
-        <display>
-        <title>mac下Hadoop环境配置</title>
-        <pubTime>2017-09-24T05:34:57.000Z</pubTime>
-        
-        <tag>Big Data</tag>
-         
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://jyzhangchn.coding.me/hive.html</loc>
-    <lastmod>2018-03-17T12:38:42.959Z</lastmod>
-    <data>
-        <display>
-        <title>mac下Hive+MySql环境配置</title>
-        <pubTime>2017-12-07T15:51:15.000Z</pubTime>
-        
-        <tag>Big Data</tag>
-         
          
            
         </display>
