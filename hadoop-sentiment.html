@@ -70,7 +70,7 @@
 
 
 
-  <meta name="keywords" content="hadoop,机器学习,java," />
+  <meta name="keywords" content="hadoop,java,机器学习," />
 
 
 
@@ -82,25 +82,25 @@
 
 
 <meta name="description" content="背景股市新闻包含财务数据、经营公告、行业动向、国家政策等大量文本信息，包含了一定的情感倾向，影响股民对公司股票未来走势的预期，进一步造成公司的股价波动。如果能够挖掘出这些新闻中蕴含的情感信息，则可以对股票价格进行预测，对于指导投资有很大的作用。 本实验尝试使用文本挖掘技术和机器学习算法，挖掘出新闻中蕴含的情感信息，分别将每条新闻的情感判别为“positive”、“neutral”、“negativ">
-<meta name="keywords" content="hadoop,机器学习,java">
+<meta name="keywords" content="hadoop,java,机器学习">
 <meta property="og:type" content="article">
 <meta property="og:title" content="上市公司财经新闻情感分析">
 <meta property="og:url" content="https://jyzhangchn.github.io/hadoop-sentiment.html">
 <meta property="og:site_name" content="Jennifer&#39;s Blog">
 <meta property="og:description" content="背景股市新闻包含财务数据、经营公告、行业动向、国家政策等大量文本信息，包含了一定的情感倾向，影响股民对公司股票未来走势的预期，进一步造成公司的股价波动。如果能够挖掘出这些新闻中蕴含的情感信息，则可以对股票价格进行预测，对于指导投资有很大的作用。 本实验尝试使用文本挖掘技术和机器学习算法，挖掘出新闻中蕴含的情感信息，分别将每条新闻的情感判别为“positive”、“neutral”、“negativ">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://jyzhangchn.github.io/media/15134914723501/15136040760630.jpg">
+<meta property="og:image" content="https://jyzhangchn.github.io/hadoop-sentiment/7.jpg">
 <meta property="og:image" content="https://jyzhangchn.github.io/hadoop-sentiment/1.jpg">
 <meta property="og:image" content="https://jyzhangchn.github.io/hadoop-sentiment/2.jpg">
 <meta property="og:image" content="https://jyzhangchn.github.io/hadoop-sentiment/3.jpg">
 <meta property="og:image" content="https://jyzhangchn.github.io/hadoop-sentiment/4.jpg">
 <meta property="og:image" content="https://jyzhangchn.github.io/hadoop-sentiment/5.jpg">
 <meta property="og:image" content="https://jyzhangchn.github.io/hadoop-sentiment/6.jpg">
-<meta property="og:updated_time" content="2018-04-14T07:45:51.670Z">
+<meta property="og:updated_time" content="2018-04-14T07:49:54.200Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="上市公司财经新闻情感分析">
 <meta name="twitter:description" content="背景股市新闻包含财务数据、经营公告、行业动向、国家政策等大量文本信息，包含了一定的情感倾向，影响股民对公司股票未来走势的预期，进一步造成公司的股价波动。如果能够挖掘出这些新闻中蕴含的情感信息，则可以对股票价格进行预测，对于指导投资有很大的作用。 本实验尝试使用文本挖掘技术和机器学习算法，挖掘出新闻中蕴含的情感信息，分别将每条新闻的情感判别为“positive”、“neutral”、“negativ">
-<meta name="twitter:image" content="https://jyzhangchn.github.io/media/15134914723501/15136040760630.jpg">
+<meta name="twitter:image" content="https://jyzhangchn.github.io/hadoop-sentiment/7.jpg">
 
 
 
@@ -485,7 +485,7 @@
 <p>测试集：knndata.txt<br>格式：【tfidf值1】【tfidf值2】···【tfidf值1500】<br>示例：（以二维数据为例）</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">0.9516    0.0326</span><br><span class="line">0.9203    0.5612</span><br><span class="line">0.0527    0.8819</span><br><span class="line">0.7379    0.6692</span><br><span class="line">0.2691    0.1904</span><br><span class="line">0.4228    0.3689</span><br><span class="line">0.5479    0.4607</span><br><span class="line">0.9427    0.9816</span><br></pre></td></tr></table></figure>
 <h4 id="KNN分类结果"><a href="#KNN分类结果" class="headerlink" title="KNN分类结果"></a>KNN分类结果</h4><p>股票数据集KNN算法输出结果部分截图：</p>
-<p><img src="media/15134914723501/15136040760630.jpg" alt=""></p>
+<img src="/hadoop-sentiment/7.jpg">
 <h3 id="NaiveBayes模型训练及分类"><a href="#NaiveBayes模型训练及分类" class="headerlink" title="NaiveBayes模型训练及分类"></a>NaiveBayes模型训练及分类</h3><h4 id="代码结构"><a href="#代码结构" class="headerlink" title="代码结构"></a>代码结构</h4><p>NaiveBayesMain.java 主程序入口<br>NaiveBayesConf.java 用于处理配置文件<br>NaiveBayesTrain.java 用于训练过程的MapReduce 描述<br>NaiveBayesTrainData.java 在测试过程之前，读取训练后数据<br>NaiveBayesTest.java 用于测试（分类）过程的MapReduce 描述</p>
 <h4 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h4><p>配置文件NBayes.conf用于描述分类内容<br>格式：</p>
 <ul>
@@ -549,9 +549,9 @@
           
             <a href="/tags/hadoop/" rel="tag"># hadoop</a>
           
-            <a href="/tags/机器学习/" rel="tag"># 机器学习</a>
-          
             <a href="/tags/java/" rel="tag"># java</a>
+          
+            <a href="/tags/机器学习/" rel="tag"># 机器学习</a>
           
         </div>
       
